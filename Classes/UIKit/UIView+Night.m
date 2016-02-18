@@ -20,7 +20,6 @@
 
 @implementation UIView (Night)
 
-
 - (DKColorPicker)dk_backgroundColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_backgroundColorPicker));
 }

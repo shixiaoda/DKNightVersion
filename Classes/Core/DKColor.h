@@ -42,4 +42,6 @@ DKColorPicker DKColorWithColors(UIColor *normalColor, UIColor *nightColor);
 + (DKColorPicker)brownColor;
 + (DKColorPicker)clearColor;
 
++ (DKColorPicker)defaultColorPicker:(UIColor *)color;
+
 @end

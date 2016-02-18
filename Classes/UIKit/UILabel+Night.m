@@ -20,6 +20,36 @@
 
 @implementation UILabel (Night)
 
++ (void)load {
+    // All methods that trigger height cache's invalidation
+    SEL selectors[] = {
+        @selector(setTextColor:)
+//        @selector(setShadowColor:),
+//        @selector(setHighlightedTextColor:)
+    };
+    
+    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+        SEL originalSelector = selectors[index];
+        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+        Method originalMethod = class_getInstanceMethod(self, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
+- (void)sm_hook_setTextColor:(UIColor *)textColor
+{
+//    NSLog(@"%@",self.dk_textColorPicker);
+    if (self.dk_textColorPicker && self.dk_textColorPicker() == textColor)
+    {
+        [self sm_hook_setTextColor:textColor];
+    }
+    else
+    {
+        self.dk_textColorPicker = [DKColor defaultColorPicker:textColor];
+    }
+    
+}
 
 - (DKColorPicker)dk_textColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_textColorPicker));
@@ -27,7 +57,7 @@
 
 - (void)setDk_textColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_textColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.textColor = picker();
+    [self sm_hook_setTextColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setTextColor:"];
 }
 

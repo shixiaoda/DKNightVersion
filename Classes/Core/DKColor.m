@@ -8,6 +8,7 @@
 
 #import "DKColor.h"
 #import "DKNightVersionManager.h"
+#import "UIColor+Night.h"
 
 @implementation DKColor
 
@@ -120,6 +121,14 @@ DKColorPicker DKColorWithColors(UIColor *normalColor, UIColor *nightColor) {
     return [self pickerWithUIColor:[UIColor colorWithCIColor:ciColor]];
 }
 #endif
+
++ (DKColorPicker)defaultColorPicker:(UIColor *)color
+{
+    return DKColorWithColors(color,[color changeColor]);
+}
+
+
+
 
 @end
 
