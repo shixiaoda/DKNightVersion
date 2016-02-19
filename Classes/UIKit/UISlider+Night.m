@@ -20,6 +20,70 @@
 
 @implementation UISlider (Night)
 
++ (void)load {
+    SEL selectors[] = {
+    @selector(setMinimumTrackTintColor:),
+	@selector(setMaximumTrackTintColor:),
+	@selector(setThumbTintColor:),
+	
+    };
+
+    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+        SEL originalSelector = selectors[index];
+        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+        Method originalMethod = class_getInstanceMethod(self, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
+
+- (void)sm_hook_setMinimumTrackTintColor:(UIColor *)color {
+    if  (!color)
+    {
+        return;
+    }
+    if (self.dk_minimumTrackTintColorPicker && self.dk_minimumTrackTintColorPicker() == color)
+    {
+        [self sm_hook_setMinimumTrackTintColor:color];
+    }
+    else
+    {
+        self.dk_minimumTrackTintColorPicker = [DKColor defaultColorPicker:color];
+    }
+}
+
+- (void)sm_hook_setMaximumTrackTintColor:(UIColor *)color {
+    if  (!color)
+    {
+        return;
+    }
+    if (self.dk_maximumTrackTintColorPicker && self.dk_maximumTrackTintColorPicker() == color)
+    {
+        [self sm_hook_setMaximumTrackTintColor:color];
+    }
+    else
+    {
+        self.dk_maximumTrackTintColorPicker = [DKColor defaultColorPicker:color];
+    }
+}
+
+- (void)sm_hook_setThumbTintColor:(UIColor *)color {
+    if  (!color)
+    {
+        return;
+    }
+    if (self.dk_thumbTintColorPicker && self.dk_thumbTintColorPicker() == color)
+    {
+        [self sm_hook_setThumbTintColor:color];
+    }
+    else
+    {
+        self.dk_thumbTintColorPicker = [DKColor defaultColorPicker:color];
+    }
+}
+
+
 
 - (DKColorPicker)dk_minimumTrackTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_minimumTrackTintColorPicker));

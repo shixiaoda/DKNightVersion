@@ -20,6 +20,54 @@
 
 @implementation UIProgressView (Night)
 
++ (void)load {
+    SEL selectors[] = {
+    @selector(setProgressTintColor:),
+	@selector(setTrackTintColor:),
+	
+    };
+
+    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+        SEL originalSelector = selectors[index];
+        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+        Method originalMethod = class_getInstanceMethod(self, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
+
+- (void)sm_hook_setProgressTintColor:(UIColor *)color {
+    if  (!color)
+    {
+        return;
+    }
+    if (self.dk_progressTintColorPicker && self.dk_progressTintColorPicker() == color)
+    {
+        [self sm_hook_setProgressTintColor:color];
+    }
+    else
+    {
+        self.dk_progressTintColorPicker = [DKColor defaultColorPicker:color];
+    }
+}
+
+- (void)sm_hook_setTrackTintColor:(UIColor *)color {
+    if  (!color)
+    {
+        return;
+    }
+    if (self.dk_trackTintColorPicker && self.dk_trackTintColorPicker() == color)
+    {
+        [self sm_hook_setTrackTintColor:color];
+    }
+    else
+    {
+        self.dk_trackTintColorPicker = [DKColor defaultColorPicker:color];
+    }
+}
+
+
 
 - (DKColorPicker)dk_progressTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_progressTintColorPicker));

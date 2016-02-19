@@ -20,6 +20,37 @@
 
 @implementation <%= klass.name %> (Night)
 
++ (void)load {
+    SEL selectors[] = {
+    <% klass.properties.each do |property| %><%= "@selector(set#{property.name.gsub(/\b\w/) { |w| w.upcase }}:),\n\t"%><% end %>
+    };
+
+    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+        SEL originalSelector = selectors[index];
+        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+        Method originalMethod = class_getInstanceMethod(self, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
+<% klass.properties.each do |property| %><%= """
+- (void)sm_hook_set#{property.name.gsub(/\b\w/) { |w| w.upcase }}:(UIColor *)color {
+    if  (!color)
+    {
+        return;
+    }
+    if (self.dk_#{property.name}Picker && self.dk_#{property.name}Picker() == color)
+    {
+        [self sm_hook_set#{property.name.gsub(/\b\w/) { |w| w.upcase }}:color];
+    }
+    else
+    {
+        self.dk_#{property.name}Picker = [DKColor defaultColorPicker:color];
+    }
+}
+""" %><% end %>
+
 <% klass.properties.each do |property| %><%= """
 - (DKColorPicker)dk_#{property.name}Picker {
     return objc_getAssociatedObject(self, @selector(dk_#{property.name}Picker));

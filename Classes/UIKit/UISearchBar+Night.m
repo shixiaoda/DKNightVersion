@@ -20,6 +20,38 @@
 
 @implementation UISearchBar (Night)
 
++ (void)load {
+    SEL selectors[] = {
+    @selector(setBarTintColor:),
+	
+    };
+
+    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+        SEL originalSelector = selectors[index];
+        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+        Method originalMethod = class_getInstanceMethod(self, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
+
+- (void)sm_hook_setBarTintColor:(UIColor *)color {
+    if  (!color)
+    {
+        return;
+    }
+    if (self.dk_barTintColorPicker && self.dk_barTintColorPicker() == color)
+    {
+        [self sm_hook_setBarTintColor:color];
+    }
+    else
+    {
+        self.dk_barTintColorPicker = [DKColor defaultColorPicker:color];
+    }
+}
+
+
 
 - (DKColorPicker)dk_barTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_barTintColorPicker));

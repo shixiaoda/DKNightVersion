@@ -124,7 +124,30 @@ DKColorPicker DKColorWithColors(UIColor *normalColor, UIColor *nightColor) {
 
 + (DKColorPicker)defaultColorPicker:(UIColor *)color
 {
-    return DKColorWithColors(color,[color changeColor]);
+    if ([color isMemberOfClass:[UIColor class]])
+    {
+        return DKColorWithColors(color,[color changeColor]);
+    }
+    else
+    {
+        switch ([DKNightVersionManager currentThemeVersion]) {
+            case DKThemeVersionNormal:
+                if ([color isEqual:[UIColor darkGrayColor]]) {
+                    return DKColorWithColors(color,[UIColor redColor]);
+                }
+                break;
+            case DKThemeVersionNight:
+                if ([color isEqual:[UIColor redColor]]) {
+                    return DKColorWithColors(color,[UIColor darkGrayColor]);
+                }
+                break;
+            default:
+                return DKColorWithColors(color,color);;
+                break;
+        }
+
+        return DKColorWithColors(color,color);
+    }
 }
 
 

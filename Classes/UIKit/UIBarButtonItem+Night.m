@@ -20,6 +20,38 @@
 
 @implementation UIBarButtonItem (Night)
 
++ (void)load {
+    SEL selectors[] = {
+    @selector(setTintColor:),
+	
+    };
+
+    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+        SEL originalSelector = selectors[index];
+        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+        Method originalMethod = class_getInstanceMethod(self, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
+
+- (void)sm_hook_setTintColor:(UIColor *)color {
+    if  (!color)
+    {
+        return;
+    }
+    if (self.dk_tintColorPicker && self.dk_tintColorPicker() == color)
+    {
+        [self sm_hook_setTintColor:color];
+    }
+    else
+    {
+        self.dk_tintColorPicker = [DKColor defaultColorPicker:color];
+    }
+}
+
+
 
 - (DKColorPicker)dk_tintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_tintColorPicker));

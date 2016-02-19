@@ -20,6 +20,54 @@
 
 @implementation UIPageControl (Night)
 
++ (void)load {
+    SEL selectors[] = {
+    @selector(setPageIndicatorTintColor:),
+	@selector(setCurrentPageIndicatorTintColor:),
+	
+    };
+
+    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+        SEL originalSelector = selectors[index];
+        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+        Method originalMethod = class_getInstanceMethod(self, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
+
+- (void)sm_hook_setPageIndicatorTintColor:(UIColor *)color {
+    if  (!color)
+    {
+        return;
+    }
+    if (self.dk_pageIndicatorTintColorPicker && self.dk_pageIndicatorTintColorPicker() == color)
+    {
+        [self sm_hook_setPageIndicatorTintColor:color];
+    }
+    else
+    {
+        self.dk_pageIndicatorTintColorPicker = [DKColor defaultColorPicker:color];
+    }
+}
+
+- (void)sm_hook_setCurrentPageIndicatorTintColor:(UIColor *)color {
+    if  (!color)
+    {
+        return;
+    }
+    if (self.dk_currentPageIndicatorTintColorPicker && self.dk_currentPageIndicatorTintColorPicker() == color)
+    {
+        [self sm_hook_setCurrentPageIndicatorTintColor:color];
+    }
+    else
+    {
+        self.dk_currentPageIndicatorTintColorPicker = [DKColor defaultColorPicker:color];
+    }
+}
+
+
 
 - (DKColorPicker)dk_pageIndicatorTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_pageIndicatorTintColorPicker));
