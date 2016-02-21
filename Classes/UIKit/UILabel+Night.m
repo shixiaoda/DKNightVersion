@@ -91,7 +91,7 @@
 
 - (void)setDk_textColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_textColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.textColor = picker();
+    [self sm_hook_setTextColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setTextColor:"];
 }
 
@@ -101,7 +101,7 @@
 
 - (void)setDk_shadowColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_shadowColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.shadowColor = picker();
+    [self sm_hook_setShadowColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setShadowColor:"];
 }
 
@@ -111,7 +111,7 @@
 
 - (void)setDk_highlightedTextColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_highlightedTextColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.highlightedTextColor = picker();
+    [self sm_hook_setHighlightedTextColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setHighlightedTextColor:"];
 }
 

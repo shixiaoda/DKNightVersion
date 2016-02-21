@@ -21,19 +21,19 @@
 @implementation UIView (Night)
 
 + (void)load {
-//    SEL selectors[] = {
-//    @selector(setBackgroundColor:),
-//	@selector(setTintColor:),
-//	
-//    };
-//
-//    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
-//        SEL originalSelector = selectors[index];
-//        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
-//        Method originalMethod = class_getInstanceMethod(self, originalSelector);
-//        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
-//        method_exchangeImplementations(originalMethod, swizzledMethod);
-//    }
+    SEL selectors[] = {
+    @selector(setBackgroundColor:),
+	@selector(setTintColor:),
+	
+    };
+
+    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+        SEL originalSelector = selectors[index];
+        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+        Method originalMethod = class_getInstanceMethod(self, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
 }
 
 
@@ -53,8 +53,6 @@
 }
 
 - (void)sm_hook_setTintColor:(UIColor *)color {
-    NSLog(@"%@",self.dk_tintColorPicker);
-     NSLog(@"%@",self.dk_tintColorPicker());
     if  (!color)
     {
         return;
@@ -77,7 +75,7 @@
 
 - (void)setDk_backgroundColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_backgroundColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.backgroundColor = picker();
+    [self sm_hook_setBackgroundColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setBackgroundColor:"];
 }
 
@@ -87,7 +85,7 @@
 
 - (void)setDk_tintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_tintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.tintColor = picker();
+    [self sm_hook_setTintColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setTintColor:"];
 }
 

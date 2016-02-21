@@ -59,7 +59,7 @@
 
 - (void)setDk_barTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_barTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.barTintColor = picker();
+    [self sm_hook_setBarTintColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setBarTintColor:"];
 }
 

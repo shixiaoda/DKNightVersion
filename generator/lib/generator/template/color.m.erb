@@ -58,7 +58,7 @@
 
 - (void)setDk_#{property.name}Picker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_#{property.name}Picker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.#{property.name} = picker();
+    [self sm_hook_set#{property.name.gsub(/\b\w/) { |w| w.upcase }}:picker()];
     [self.pickers setValue:[picker copy] forKey:@\"#{property.setter}\"];
 }
 """ %><% end %>

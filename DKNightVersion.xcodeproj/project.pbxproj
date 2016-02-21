@@ -7,24 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		06B0C330F4BC7DB38ACCDC80 /* UITabBar+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = E8CA3BAE9DF6DDEB6410ADF8 /* UITabBar+Night.h */; };
-		15C827A77B33BD3ABA261F3D /* UISwitch+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF1E90DA5BF41933891C5F2 /* UISwitch+Night.m */; };
+		075375BD796C1791F1D491F6 /* UIBarButtonItem+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 548AE36B6347A9BB061743BC /* UIBarButtonItem+Night.h */; };
 		186AC5221AF855410095ED95 /* DKNightVersionManagerTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 186AC5211AF855410095ED95 /* DKNightVersionManagerTest.m */; };
 		18D228911AF8BA8700872BF1 /* DKNightVersionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D228901AF8BA8700872BF1 /* DKNightVersionManager.m */; };
 		18D228A11AF8BB7800872BF1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 18D2289F1AF8BB7800872BF1 /* main.m */; };
 		18D228A61AF8BB8D00872BF1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18D228A51AF8BB8D00872BF1 /* Images.xcassets */; };
 		18D228A71AF8BC1A00872BF1 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 18D228A21AF8BB8500872BF1 /* LaunchScreen.xib */; };
-		3034DD2944006225C0821A69 /* UISearchBar+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 08CB5BB0CD6FF8B3F226241F /* UISearchBar+Night.h */; };
-		32940101026E7964C03BC30F /* UILabel+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = CFEB961D7EF41450DE599FCA /* UILabel+Night.h */; };
-		3362599AB8864898CE016A45 /* UIProgressView+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = B31A4612267BE6A94BE659DB /* UIProgressView+Night.h */; };
-		37F2D4AF22F08EBC23DA0688 /* UITextField+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 70E82582921B48F4587D7496 /* UITextField+Night.m */; };
-		3CD6D257285A57A35B2555CE /* UIPageControl+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 263EFC35C411054165721049 /* UIPageControl+Night.h */; };
+		30B0D84604A8296E031A0652 /* UIPageControl+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 53344A0D6236B038FF136F69 /* UIPageControl+Night.m */; };
 		420BED221C7582A100FB9796 /* UIColor+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 420BED1F1C7582A100FB9796 /* UIColor+Night.h */; };
 		420BED241C7582A100FB9796 /* UIColor+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 420BED201C7582A100FB9796 /* UIColor+Night.m */; };
-		480556A2B6314375E0A2158D /* UISwitch+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = B3FF7415B28C46296F2B0787 /* UISwitch+Night.h */; };
-		5A6B9DBB5E18ED13E9E318A4 /* UITabBar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = E43CB221A1175E4FA5FA9735 /* UITabBar+Night.m */; };
-		6B720F0356AEC693B009E8C8 /* UITextView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 6566964E5EBDEC5ACEBCA515 /* UITextView+Night.m */; };
-		6FE442C2A5A73051CB2C2B84 /* UITableView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 37D8B6FEBEFACCC774D8B912 /* UITableView+Night.m */; };
+		4B911D513894FA247D58102B /* UISlider+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A41716C75E14A88DAB9BB5A /* UISlider+Night.m */; };
+		52EDAA8ABD03FB6442A3DE5B /* UIBarButtonItem+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = D8E80C2D92AEBC65E2B9F6E1 /* UIBarButtonItem+Night.m */; };
+		5D6DB2731E88BBA2734761AF /* UIView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = C177F6C319AD22B55CAF78F1 /* UIView+Night.m */; };
+		60F74B1F8B7202DEC1AB5A4C /* UIToolbar+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = C6BE06D9694335B3DFEFB713 /* UIToolbar+Night.h */; };
+		645E9CB9629814A055BEEF7D /* UIPageControl+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = BE9A5DB12113C4C27687DC9F /* UIPageControl+Night.h */; };
+		670DC1FE3AE889D10B044D7D /* UILabel+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 85E0E335B5292CA6A947328F /* UILabel+Night.m */; };
+		699A8E366DC967700E0B028A /* UIProgressView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = D11AB003827A666533050FD3 /* UIProgressView+Night.m */; };
+		7175E25F95F7904920F419FF /* UITableView+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 1CF54CC75CB5E731D69E46D5 /* UITableView+Night.h */; };
 		729976D01C5B28EB000B87C1 /* CALayer+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 729976CE1C5B28EB000B87C1 /* CALayer+Night.h */; };
 		729976D11C5B28EB000B87C1 /* CALayer+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 729976CF1C5B28EB000B87C1 /* CALayer+Night.m */; };
 		729CAAC31BEE3E2300E279D6 /* NSObject+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 729CAAC11BEE3E2300E279D6 /* NSObject+Night.h */; };
@@ -60,25 +59,26 @@
 		72EAC6821C1AE7F00063012B /* DKImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EAC6801C1AE7F00063012B /* DKImage.m */; };
 		72EAC6851C1AE9F70063012B /* DKColorTable.h in Headers */ = {isa = PBXBuildFile; fileRef = 72EAC6831C1AE9F70063012B /* DKColorTable.h */; };
 		72EAC6861C1AE9F70063012B /* DKColorTable.m in Sources */ = {isa = PBXBuildFile; fileRef = 72EAC6841C1AE9F70063012B /* DKColorTable.m */; };
-		7D860FD1B8A350F0F8D6FCB9 /* UIView+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 2D557CC5F2F4639016565CCC /* UIView+Night.h */; };
-		856184BDACF168254B3DC02E /* UISlider+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = E0BD16F916A32CB470881782 /* UISlider+Night.m */; };
-		86CCB8A69663972875D721F7 /* UIToolbar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 8E2786A302A383623F36CA62 /* UIToolbar+Night.m */; };
-		8887B7CBB558650AA60C40AF /* UITextField+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 33F614C27222EA6562AE3BFF /* UITextField+Night.h */; };
-		8B4BD367656510FD92B33092 /* UIBarButtonItem+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 8B06082FAB6AE243995626A4 /* UIBarButtonItem+Night.m */; };
-		A5CD190D1A13288B4EEEB076 /* UIToolbar+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 32FCA34E19F423FD3D866E4D /* UIToolbar+Night.h */; };
-		B17FA187EBA3C6E2B8257C24 /* UIControl+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 6B997A77B50B873E46FD29B3 /* UIControl+Night.m */; };
-		BA6B9E61D9C2B6B67FCECBCC /* UINavigationBar+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 025F72F6D1131BD439E1D025 /* UINavigationBar+Night.h */; };
-		C91E5EDBEA9B8B19507A8952 /* UIProgressView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 2823AA670269D06E2A29AAEB /* UIProgressView+Night.m */; };
-		CBD805250BBBF2D94758C4EB /* UIControl+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = C03E94515B19C7B6463C05AE /* UIControl+Night.h */; };
-		CEA3836D77176E434D450019 /* UINavigationBar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = F7BDEC986B2BB8D3F82E468B /* UINavigationBar+Night.m */; };
-		D1F3AC8D6793C03CA797357F /* UIBarButtonItem+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 4F22BB86C386F158624DEFAE /* UIBarButtonItem+Night.h */; };
-		D4188111B4FED8806E0793EB /* UIView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = FDA3E08FD9499AC40384CBAC /* UIView+Night.m */; };
-		D5BE37C17536DACADC3036DC /* UISearchBar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CB1B8631CA979E6BB7CDE7F /* UISearchBar+Night.m */; };
-		E43ED4D3F670343D7652ADEF /* UITextView+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 3C98A959058DCA32729E5E52 /* UITextView+Night.h */; };
-		E5C3384F426DE6BCA2BD8DD3 /* UILabel+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 0F05FD35DF4FF1729997E037 /* UILabel+Night.m */; };
-		EAD058DAAF9DE69F7FE41A72 /* UITableView+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = C38A7AC4F7B362F3701D7CA6 /* UITableView+Night.h */; };
-		EC402E1BFB002F00266545D6 /* UIPageControl+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = A6A2391C3339A3F459F38C3B /* UIPageControl+Night.m */; };
-		F7678EFD6F1B983231F9A6F3 /* UISlider+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 802E29E5A01286CB5D83348F /* UISlider+Night.h */; };
+		73213598EB41B6BE316D2773 /* UILabel+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 011A62173E9DDA97DE33D467 /* UILabel+Night.h */; };
+		751B4B7A57F1463AA32C0FB0 /* UINavigationBar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = BE7BE1FF31B1D7D8EE101E34 /* UINavigationBar+Night.m */; };
+		75FFD4B19D017B1ED0ACF0C1 /* UISwitch+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = DD1983355271D1642BD8CEC8 /* UISwitch+Night.h */; };
+		792533BEAC0043798737F9CA /* UIView+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = BBD71B3925A481FEFE51E4DF /* UIView+Night.h */; };
+		7C162DA2496C3F2849E6812B /* UITabBar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C49296ACF19CE7D50C7C4E3 /* UITabBar+Night.m */; };
+		7DB0AE00B6F2D415E509619D /* UISearchBar+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 1852664A2AFD98B73754F5E8 /* UISearchBar+Night.h */; };
+		82091D920AE9349E8CA08E17 /* UIProgressView+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = B7C50B95A3E8A208F0CE379F /* UIProgressView+Night.h */; };
+		83CB776B5C77FE1F31458C1A /* UITabBar+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 991665CB53DE9A7F80E3C81F /* UITabBar+Night.h */; };
+		922BB7C440EC9EC93D850352 /* UITextField+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = EC8766C92EA502061A291549 /* UITextField+Night.m */; };
+		9503302C5EBE080F2CCC15D9 /* UIControl+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = A6046886DCF2CCAE6DDB344E /* UIControl+Night.m */; };
+		95912B880B8B53849EA8E108 /* UITextView+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = C45DC7AB80ED7089305942DD /* UITextView+Night.h */; };
+		B431201516B00FB12DFC5004 /* UITableView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = DEAD9094A8CE9A13F5C04B18 /* UITableView+Night.m */; };
+		B6C2D411DAAB87EF3832AA3B /* UITextView+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = CC93B464071621E1BB7489C7 /* UITextView+Night.m */; };
+		B6D69CACFBAE7674F49531A9 /* UISearchBar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = B30700E923AB94C750ED1C19 /* UISearchBar+Night.m */; };
+		B91CDDDFC8FD1B92FA032944 /* UIControl+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = C93C1FD6EFC5FB64AAB70D0B /* UIControl+Night.h */; };
+		C61013127B937950255A40AA /* UIToolbar+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 813F8DD9DB40E7EE46CF0418 /* UIToolbar+Night.m */; };
+		C7FE6A7C68B6BCA22536909E /* UITextField+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = FE4725273F39EF5C030B3439 /* UITextField+Night.h */; };
+		DCDC7550FC7D352D67201DAD /* UISlider+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F2937898A97C94980B7CF5E /* UISlider+Night.h */; };
+		F015BE04EB0F47B13B4F7490 /* UINavigationBar+Night.h in Headers */ = {isa = PBXBuildFile; fileRef = DAF173A750D4084FE5038AA2 /* UINavigationBar+Night.h */; };
+		F3CE0EDCF1B1399A15D07F4A /* UISwitch+Night.m in Sources */ = {isa = PBXBuildFile; fileRef = 742F8459705250B06A782D3C /* UISwitch+Night.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,12 +92,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		025F72F6D1131BD439E1D025 /* UINavigationBar+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+Night.h"; path = "Classes/UIKit/UINavigationBar+Night.h"; sourceTree = "<group>"; };
-		08CB5BB0CD6FF8B3F226241F /* UISearchBar+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UISearchBar+Night.h"; path = "Classes/UIKit/UISearchBar+Night.h"; sourceTree = "<group>"; };
-		0F05FD35DF4FF1729997E037 /* UILabel+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Night.m"; path = "Classes/UIKit/UILabel+Night.m"; sourceTree = "<group>"; };
+		011A62173E9DDA97DE33D467 /* UILabel+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+Night.h"; path = "Classes/UIKit/UILabel+Night.h"; sourceTree = "<group>"; };
 		1816313D1AFE549A00A20423 /* property.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = property.json; sourceTree = SOURCE_ROOT; };
 		182BCC231AFF199A0095BF9C /* PresentingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PresentingViewController.h; path = Demo/PresentingViewController.h; sourceTree = SOURCE_ROOT; };
 		182BCC241AFF199A0095BF9C /* PresentingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PresentingViewController.m; path = Demo/PresentingViewController.m; sourceTree = SOURCE_ROOT; };
+		1852664A2AFD98B73754F5E8 /* UISearchBar+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UISearchBar+Night.h"; path = "Classes/UIKit/UISearchBar+Night.h"; sourceTree = "<group>"; };
 		186AC5211AF855410095ED95 /* DKNightVersionManagerTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DKNightVersionManagerTest.m; sourceTree = "<group>"; };
 		189854B61ADD5B550050568B /* DKNightVersion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DKNightVersion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		189854C91ADD5B560050568B /* DKNightVersionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DKNightVersionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,21 +116,13 @@
 		18D2289F1AF8BB7800872BF1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Demo/main.m; sourceTree = SOURCE_ROOT; };
 		18D228A31AF8BB8500872BF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Demo/Base.lproj/LaunchScreen.xib; sourceTree = SOURCE_ROOT; };
 		18D228A51AF8BB8D00872BF1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Demo/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		263EFC35C411054165721049 /* UIPageControl+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPageControl+Night.h"; path = "Classes/UIKit/UIPageControl+Night.h"; sourceTree = "<group>"; };
-		2823AA670269D06E2A29AAEB /* UIProgressView+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+Night.m"; path = "Classes/UIKit/UIProgressView+Night.m"; sourceTree = "<group>"; };
-		2CB1B8631CA979E6BB7CDE7F /* UISearchBar+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UISearchBar+Night.m"; path = "Classes/UIKit/UISearchBar+Night.m"; sourceTree = "<group>"; };
-		2D557CC5F2F4639016565CCC /* UIView+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Night.h"; path = "Classes/UIKit/UIView+Night.h"; sourceTree = "<group>"; };
-		32FCA34E19F423FD3D866E4D /* UIToolbar+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIToolbar+Night.h"; path = "Classes/UIKit/UIToolbar+Night.h"; sourceTree = "<group>"; };
-		33F614C27222EA6562AE3BFF /* UITextField+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+Night.h"; path = "Classes/UIKit/UITextField+Night.h"; sourceTree = "<group>"; };
-		37D8B6FEBEFACCC774D8B912 /* UITableView+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+Night.m"; path = "Classes/UIKit/UITableView+Night.m"; sourceTree = "<group>"; };
-		3C98A959058DCA32729E5E52 /* UITextView+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+Night.h"; path = "Classes/UIKit/UITextView+Night.h"; sourceTree = "<group>"; };
-		3FF1E90DA5BF41933891C5F2 /* UISwitch+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UISwitch+Night.m"; path = "Classes/UIKit/UISwitch+Night.m"; sourceTree = "<group>"; };
+		1CF54CC75CB5E731D69E46D5 /* UITableView+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView+Night.h"; path = "Classes/UIKit/UITableView+Night.h"; sourceTree = "<group>"; };
 		420BED1F1C7582A100FB9796 /* UIColor+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Night.h"; path = "Classes/Manual/UIColor+Night.h"; sourceTree = SOURCE_ROOT; };
 		420BED201C7582A100FB9796 /* UIColor+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Night.m"; path = "Classes/Manual/UIColor+Night.m"; sourceTree = SOURCE_ROOT; };
-		4F22BB86C386F158624DEFAE /* UIBarButtonItem+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Night.h"; path = "Classes/UIKit/UIBarButtonItem+Night.h"; sourceTree = "<group>"; };
-		6566964E5EBDEC5ACEBCA515 /* UITextView+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+Night.m"; path = "Classes/UIKit/UITextView+Night.m"; sourceTree = "<group>"; };
-		6B997A77B50B873E46FD29B3 /* UIControl+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIControl+Night.m"; path = "Classes/UIKit/UIControl+Night.m"; sourceTree = "<group>"; };
-		70E82582921B48F4587D7496 /* UITextField+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+Night.m"; path = "Classes/UIKit/UITextField+Night.m"; sourceTree = "<group>"; };
+		4C49296ACF19CE7D50C7C4E3 /* UITabBar+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITabBar+Night.m"; path = "Classes/UIKit/UITabBar+Night.m"; sourceTree = "<group>"; };
+		53344A0D6236B038FF136F69 /* UIPageControl+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPageControl+Night.m"; path = "Classes/UIKit/UIPageControl+Night.m"; sourceTree = "<group>"; };
+		548AE36B6347A9BB061743BC /* UIBarButtonItem+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIBarButtonItem+Night.h"; path = "Classes/UIKit/UIBarButtonItem+Night.h"; sourceTree = "<group>"; };
+		5A41716C75E14A88DAB9BB5A /* UISlider+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UISlider+Night.m"; path = "Classes/UIKit/UISlider+Night.m"; sourceTree = "<group>"; };
 		729976CE1C5B28EB000B87C1 /* CALayer+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CALayer+Night.h"; path = "Classes/CoreAnimation/CALayer+Night.h"; sourceTree = SOURCE_ROOT; };
 		729976CF1C5B28EB000B87C1 /* CALayer+Night.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CALayer+Night.m"; path = "Classes/CoreAnimation/CALayer+Night.m"; sourceTree = SOURCE_ROOT; };
 		729CAAC11BEE3E2300E279D6 /* NSObject+Night.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+Night.h"; path = "Classes/Core/NSObject+Night.h"; sourceTree = SOURCE_ROOT; };
@@ -165,20 +156,29 @@
 		72EAC6801C1AE7F00063012B /* DKImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DKImage.m; path = Classes/Core/DKImage.m; sourceTree = SOURCE_ROOT; };
 		72EAC6831C1AE9F70063012B /* DKColorTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DKColorTable.h; path = Classes/Core/DKColorTable.h; sourceTree = SOURCE_ROOT; };
 		72EAC6841C1AE9F70063012B /* DKColorTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DKColorTable.m; path = Classes/Core/DKColorTable.m; sourceTree = SOURCE_ROOT; };
-		802E29E5A01286CB5D83348F /* UISlider+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UISlider+Night.h"; path = "Classes/UIKit/UISlider+Night.h"; sourceTree = "<group>"; };
-		8B06082FAB6AE243995626A4 /* UIBarButtonItem+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Night.m"; path = "Classes/UIKit/UIBarButtonItem+Night.m"; sourceTree = "<group>"; };
-		8E2786A302A383623F36CA62 /* UIToolbar+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIToolbar+Night.m"; path = "Classes/UIKit/UIToolbar+Night.m"; sourceTree = "<group>"; };
-		A6A2391C3339A3F459F38C3B /* UIPageControl+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIPageControl+Night.m"; path = "Classes/UIKit/UIPageControl+Night.m"; sourceTree = "<group>"; };
-		B31A4612267BE6A94BE659DB /* UIProgressView+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+Night.h"; path = "Classes/UIKit/UIProgressView+Night.h"; sourceTree = "<group>"; };
-		B3FF7415B28C46296F2B0787 /* UISwitch+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UISwitch+Night.h"; path = "Classes/UIKit/UISwitch+Night.h"; sourceTree = "<group>"; };
-		C03E94515B19C7B6463C05AE /* UIControl+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIControl+Night.h"; path = "Classes/UIKit/UIControl+Night.h"; sourceTree = "<group>"; };
-		C38A7AC4F7B362F3701D7CA6 /* UITableView+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITableView+Night.h"; path = "Classes/UIKit/UITableView+Night.h"; sourceTree = "<group>"; };
-		CFEB961D7EF41450DE599FCA /* UILabel+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UILabel+Night.h"; path = "Classes/UIKit/UILabel+Night.h"; sourceTree = "<group>"; };
-		E0BD16F916A32CB470881782 /* UISlider+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UISlider+Night.m"; path = "Classes/UIKit/UISlider+Night.m"; sourceTree = "<group>"; };
-		E43CB221A1175E4FA5FA9735 /* UITabBar+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITabBar+Night.m"; path = "Classes/UIKit/UITabBar+Night.m"; sourceTree = "<group>"; };
-		E8CA3BAE9DF6DDEB6410ADF8 /* UITabBar+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITabBar+Night.h"; path = "Classes/UIKit/UITabBar+Night.h"; sourceTree = "<group>"; };
-		F7BDEC986B2BB8D3F82E468B /* UINavigationBar+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Night.m"; path = "Classes/UIKit/UINavigationBar+Night.m"; sourceTree = "<group>"; };
-		FDA3E08FD9499AC40384CBAC /* UIView+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Night.m"; path = "Classes/UIKit/UIView+Night.m"; sourceTree = "<group>"; };
+		742F8459705250B06A782D3C /* UISwitch+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UISwitch+Night.m"; path = "Classes/UIKit/UISwitch+Night.m"; sourceTree = "<group>"; };
+		813F8DD9DB40E7EE46CF0418 /* UIToolbar+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIToolbar+Night.m"; path = "Classes/UIKit/UIToolbar+Night.m"; sourceTree = "<group>"; };
+		85E0E335B5292CA6A947328F /* UILabel+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UILabel+Night.m"; path = "Classes/UIKit/UILabel+Night.m"; sourceTree = "<group>"; };
+		991665CB53DE9A7F80E3C81F /* UITabBar+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITabBar+Night.h"; path = "Classes/UIKit/UITabBar+Night.h"; sourceTree = "<group>"; };
+		9F2937898A97C94980B7CF5E /* UISlider+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UISlider+Night.h"; path = "Classes/UIKit/UISlider+Night.h"; sourceTree = "<group>"; };
+		A6046886DCF2CCAE6DDB344E /* UIControl+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIControl+Night.m"; path = "Classes/UIKit/UIControl+Night.m"; sourceTree = "<group>"; };
+		B30700E923AB94C750ED1C19 /* UISearchBar+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UISearchBar+Night.m"; path = "Classes/UIKit/UISearchBar+Night.m"; sourceTree = "<group>"; };
+		B7C50B95A3E8A208F0CE379F /* UIProgressView+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIProgressView+Night.h"; path = "Classes/UIKit/UIProgressView+Night.h"; sourceTree = "<group>"; };
+		BBD71B3925A481FEFE51E4DF /* UIView+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIView+Night.h"; path = "Classes/UIKit/UIView+Night.h"; sourceTree = "<group>"; };
+		BE7BE1FF31B1D7D8EE101E34 /* UINavigationBar+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UINavigationBar+Night.m"; path = "Classes/UIKit/UINavigationBar+Night.m"; sourceTree = "<group>"; };
+		BE9A5DB12113C4C27687DC9F /* UIPageControl+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIPageControl+Night.h"; path = "Classes/UIKit/UIPageControl+Night.h"; sourceTree = "<group>"; };
+		C177F6C319AD22B55CAF78F1 /* UIView+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIView+Night.m"; path = "Classes/UIKit/UIView+Night.m"; sourceTree = "<group>"; };
+		C45DC7AB80ED7089305942DD /* UITextView+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextView+Night.h"; path = "Classes/UIKit/UITextView+Night.h"; sourceTree = "<group>"; };
+		C6BE06D9694335B3DFEFB713 /* UIToolbar+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIToolbar+Night.h"; path = "Classes/UIKit/UIToolbar+Night.h"; sourceTree = "<group>"; };
+		C93C1FD6EFC5FB64AAB70D0B /* UIControl+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIControl+Night.h"; path = "Classes/UIKit/UIControl+Night.h"; sourceTree = "<group>"; };
+		CC93B464071621E1BB7489C7 /* UITextView+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextView+Night.m"; path = "Classes/UIKit/UITextView+Night.m"; sourceTree = "<group>"; };
+		D11AB003827A666533050FD3 /* UIProgressView+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIProgressView+Night.m"; path = "Classes/UIKit/UIProgressView+Night.m"; sourceTree = "<group>"; };
+		D8E80C2D92AEBC65E2B9F6E1 /* UIBarButtonItem+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UIBarButtonItem+Night.m"; path = "Classes/UIKit/UIBarButtonItem+Night.m"; sourceTree = "<group>"; };
+		DAF173A750D4084FE5038AA2 /* UINavigationBar+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UINavigationBar+Night.h"; path = "Classes/UIKit/UINavigationBar+Night.h"; sourceTree = "<group>"; };
+		DD1983355271D1642BD8CEC8 /* UISwitch+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UISwitch+Night.h"; path = "Classes/UIKit/UISwitch+Night.h"; sourceTree = "<group>"; };
+		DEAD9094A8CE9A13F5C04B18 /* UITableView+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITableView+Night.m"; path = "Classes/UIKit/UITableView+Night.m"; sourceTree = "<group>"; };
+		EC8766C92EA502061A291549 /* UITextField+Night.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = "UITextField+Night.m"; path = "Classes/UIKit/UITextField+Night.m"; sourceTree = "<group>"; };
+		FE4725273F39EF5C030B3439 /* UITextField+Night.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UITextField+Night.h"; path = "Classes/UIKit/UITextField+Night.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,36 +413,36 @@
 		D4ABEB8B26FEC56F04DE66B9 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				2D557CC5F2F4639016565CCC /* UIView+Night.h */,
-				FDA3E08FD9499AC40384CBAC /* UIView+Night.m */,
-				CFEB961D7EF41450DE599FCA /* UILabel+Night.h */,
-				0F05FD35DF4FF1729997E037 /* UILabel+Night.m */,
-				025F72F6D1131BD439E1D025 /* UINavigationBar+Night.h */,
-				F7BDEC986B2BB8D3F82E468B /* UINavigationBar+Night.m */,
-				E8CA3BAE9DF6DDEB6410ADF8 /* UITabBar+Night.h */,
-				E43CB221A1175E4FA5FA9735 /* UITabBar+Night.m */,
-				4F22BB86C386F158624DEFAE /* UIBarButtonItem+Night.h */,
-				8B06082FAB6AE243995626A4 /* UIBarButtonItem+Night.m */,
-				C38A7AC4F7B362F3701D7CA6 /* UITableView+Night.h */,
-				37D8B6FEBEFACCC774D8B912 /* UITableView+Night.m */,
-				3C98A959058DCA32729E5E52 /* UITextView+Night.h */,
-				6566964E5EBDEC5ACEBCA515 /* UITextView+Night.m */,
-				33F614C27222EA6562AE3BFF /* UITextField+Night.h */,
-				70E82582921B48F4587D7496 /* UITextField+Night.m */,
-				C03E94515B19C7B6463C05AE /* UIControl+Night.h */,
-				6B997A77B50B873E46FD29B3 /* UIControl+Night.m */,
-				32FCA34E19F423FD3D866E4D /* UIToolbar+Night.h */,
-				8E2786A302A383623F36CA62 /* UIToolbar+Night.m */,
-				B3FF7415B28C46296F2B0787 /* UISwitch+Night.h */,
-				3FF1E90DA5BF41933891C5F2 /* UISwitch+Night.m */,
-				802E29E5A01286CB5D83348F /* UISlider+Night.h */,
-				E0BD16F916A32CB470881782 /* UISlider+Night.m */,
-				08CB5BB0CD6FF8B3F226241F /* UISearchBar+Night.h */,
-				2CB1B8631CA979E6BB7CDE7F /* UISearchBar+Night.m */,
-				B31A4612267BE6A94BE659DB /* UIProgressView+Night.h */,
-				2823AA670269D06E2A29AAEB /* UIProgressView+Night.m */,
-				263EFC35C411054165721049 /* UIPageControl+Night.h */,
-				A6A2391C3339A3F459F38C3B /* UIPageControl+Night.m */,
+				BBD71B3925A481FEFE51E4DF /* UIView+Night.h */,
+				C177F6C319AD22B55CAF78F1 /* UIView+Night.m */,
+				011A62173E9DDA97DE33D467 /* UILabel+Night.h */,
+				85E0E335B5292CA6A947328F /* UILabel+Night.m */,
+				DAF173A750D4084FE5038AA2 /* UINavigationBar+Night.h */,
+				BE7BE1FF31B1D7D8EE101E34 /* UINavigationBar+Night.m */,
+				991665CB53DE9A7F80E3C81F /* UITabBar+Night.h */,
+				4C49296ACF19CE7D50C7C4E3 /* UITabBar+Night.m */,
+				548AE36B6347A9BB061743BC /* UIBarButtonItem+Night.h */,
+				D8E80C2D92AEBC65E2B9F6E1 /* UIBarButtonItem+Night.m */,
+				1CF54CC75CB5E731D69E46D5 /* UITableView+Night.h */,
+				DEAD9094A8CE9A13F5C04B18 /* UITableView+Night.m */,
+				C45DC7AB80ED7089305942DD /* UITextView+Night.h */,
+				CC93B464071621E1BB7489C7 /* UITextView+Night.m */,
+				FE4725273F39EF5C030B3439 /* UITextField+Night.h */,
+				EC8766C92EA502061A291549 /* UITextField+Night.m */,
+				C93C1FD6EFC5FB64AAB70D0B /* UIControl+Night.h */,
+				A6046886DCF2CCAE6DDB344E /* UIControl+Night.m */,
+				C6BE06D9694335B3DFEFB713 /* UIToolbar+Night.h */,
+				813F8DD9DB40E7EE46CF0418 /* UIToolbar+Night.m */,
+				DD1983355271D1642BD8CEC8 /* UISwitch+Night.h */,
+				742F8459705250B06A782D3C /* UISwitch+Night.m */,
+				9F2937898A97C94980B7CF5E /* UISlider+Night.h */,
+				5A41716C75E14A88DAB9BB5A /* UISlider+Night.m */,
+				1852664A2AFD98B73754F5E8 /* UISearchBar+Night.h */,
+				B30700E923AB94C750ED1C19 /* UISearchBar+Night.m */,
+				B7C50B95A3E8A208F0CE379F /* UIProgressView+Night.h */,
+				D11AB003827A666533050FD3 /* UIProgressView+Night.m */,
+				BE9A5DB12113C4C27687DC9F /* UIPageControl+Night.h */,
+				53344A0D6236B038FF136F69 /* UIPageControl+Night.m */,
 			);
 			name = UIKit;
 			sourceTree = SOURCE_ROOT;
@@ -465,21 +465,21 @@
 				72EAC66D1C1ACD870063012B /* UIImageView+Night.h in Headers */,
 				72EAC6811C1AE7F00063012B /* DKImage.h in Headers */,
 				729976D01C5B28EB000B87C1 /* CALayer+Night.h in Headers */,
-				7D860FD1B8A350F0F8D6FCB9 /* UIView+Night.h in Headers */,
-				32940101026E7964C03BC30F /* UILabel+Night.h in Headers */,
-				BA6B9E61D9C2B6B67FCECBCC /* UINavigationBar+Night.h in Headers */,
-				06B0C330F4BC7DB38ACCDC80 /* UITabBar+Night.h in Headers */,
-				D1F3AC8D6793C03CA797357F /* UIBarButtonItem+Night.h in Headers */,
-				EAD058DAAF9DE69F7FE41A72 /* UITableView+Night.h in Headers */,
-				E43ED4D3F670343D7652ADEF /* UITextView+Night.h in Headers */,
-				8887B7CBB558650AA60C40AF /* UITextField+Night.h in Headers */,
-				CBD805250BBBF2D94758C4EB /* UIControl+Night.h in Headers */,
-				A5CD190D1A13288B4EEEB076 /* UIToolbar+Night.h in Headers */,
-				480556A2B6314375E0A2158D /* UISwitch+Night.h in Headers */,
-				F7678EFD6F1B983231F9A6F3 /* UISlider+Night.h in Headers */,
-				3034DD2944006225C0821A69 /* UISearchBar+Night.h in Headers */,
-				3362599AB8864898CE016A45 /* UIProgressView+Night.h in Headers */,
-				3CD6D257285A57A35B2555CE /* UIPageControl+Night.h in Headers */,
+				792533BEAC0043798737F9CA /* UIView+Night.h in Headers */,
+				73213598EB41B6BE316D2773 /* UILabel+Night.h in Headers */,
+				F015BE04EB0F47B13B4F7490 /* UINavigationBar+Night.h in Headers */,
+				83CB776B5C77FE1F31458C1A /* UITabBar+Night.h in Headers */,
+				075375BD796C1791F1D491F6 /* UIBarButtonItem+Night.h in Headers */,
+				7175E25F95F7904920F419FF /* UITableView+Night.h in Headers */,
+				95912B880B8B53849EA8E108 /* UITextView+Night.h in Headers */,
+				C7FE6A7C68B6BCA22536909E /* UITextField+Night.h in Headers */,
+				B91CDDDFC8FD1B92FA032944 /* UIControl+Night.h in Headers */,
+				60F74B1F8B7202DEC1AB5A4C /* UIToolbar+Night.h in Headers */,
+				75FFD4B19D017B1ED0ACF0C1 /* UISwitch+Night.h in Headers */,
+				DCDC7550FC7D352D67201DAD /* UISlider+Night.h in Headers */,
+				7DB0AE00B6F2D415E509619D /* UISearchBar+Night.h in Headers */,
+				82091D920AE9349E8CA08E17 /* UIProgressView+Night.h in Headers */,
+				645E9CB9629814A055BEEF7D /* UIPageControl+Night.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -637,21 +637,21 @@
 				729976D11C5B28EB000B87C1 /* CALayer+Night.m in Sources */,
 				72EAC66E1C1ACD870063012B /* UIImageView+Night.m in Sources */,
 				72EAC6861C1AE9F70063012B /* DKColorTable.m in Sources */,
-				D4188111B4FED8806E0793EB /* UIView+Night.m in Sources */,
-				E5C3384F426DE6BCA2BD8DD3 /* UILabel+Night.m in Sources */,
-				CEA3836D77176E434D450019 /* UINavigationBar+Night.m in Sources */,
-				5A6B9DBB5E18ED13E9E318A4 /* UITabBar+Night.m in Sources */,
-				8B4BD367656510FD92B33092 /* UIBarButtonItem+Night.m in Sources */,
-				6FE442C2A5A73051CB2C2B84 /* UITableView+Night.m in Sources */,
-				6B720F0356AEC693B009E8C8 /* UITextView+Night.m in Sources */,
-				37F2D4AF22F08EBC23DA0688 /* UITextField+Night.m in Sources */,
-				B17FA187EBA3C6E2B8257C24 /* UIControl+Night.m in Sources */,
-				86CCB8A69663972875D721F7 /* UIToolbar+Night.m in Sources */,
-				15C827A77B33BD3ABA261F3D /* UISwitch+Night.m in Sources */,
-				856184BDACF168254B3DC02E /* UISlider+Night.m in Sources */,
-				D5BE37C17536DACADC3036DC /* UISearchBar+Night.m in Sources */,
-				C91E5EDBEA9B8B19507A8952 /* UIProgressView+Night.m in Sources */,
-				EC402E1BFB002F00266545D6 /* UIPageControl+Night.m in Sources */,
+				5D6DB2731E88BBA2734761AF /* UIView+Night.m in Sources */,
+				670DC1FE3AE889D10B044D7D /* UILabel+Night.m in Sources */,
+				751B4B7A57F1463AA32C0FB0 /* UINavigationBar+Night.m in Sources */,
+				7C162DA2496C3F2849E6812B /* UITabBar+Night.m in Sources */,
+				52EDAA8ABD03FB6442A3DE5B /* UIBarButtonItem+Night.m in Sources */,
+				B431201516B00FB12DFC5004 /* UITableView+Night.m in Sources */,
+				B6C2D411DAAB87EF3832AA3B /* UITextView+Night.m in Sources */,
+				922BB7C440EC9EC93D850352 /* UITextField+Night.m in Sources */,
+				9503302C5EBE080F2CCC15D9 /* UIControl+Night.m in Sources */,
+				C61013127B937950255A40AA /* UIToolbar+Night.m in Sources */,
+				F3CE0EDCF1B1399A15D07F4A /* UISwitch+Night.m in Sources */,
+				4B911D513894FA247D58102B /* UISlider+Night.m in Sources */,
+				B6D69CACFBAE7674F49531A9 /* UISearchBar+Night.m in Sources */,
+				699A8E366DC967700E0B028A /* UIProgressView+Night.m in Sources */,
+				30B0D84604A8296E031A0652 /* UIPageControl+Night.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

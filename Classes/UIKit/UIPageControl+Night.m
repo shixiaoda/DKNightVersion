@@ -75,7 +75,7 @@
 
 - (void)setDk_pageIndicatorTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_pageIndicatorTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.pageIndicatorTintColor = picker();
+    [self sm_hook_setPageIndicatorTintColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setPageIndicatorTintColor:"];
 }
 
@@ -85,7 +85,7 @@
 
 - (void)setDk_currentPageIndicatorTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_currentPageIndicatorTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.currentPageIndicatorTintColor = picker();
+    [self sm_hook_setCurrentPageIndicatorTintColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setCurrentPageIndicatorTintColor:"];
 }
 

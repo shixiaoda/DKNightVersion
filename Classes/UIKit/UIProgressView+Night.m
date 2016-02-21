@@ -75,7 +75,7 @@
 
 - (void)setDk_progressTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_progressTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.progressTintColor = picker();
+    [self sm_hook_setProgressTintColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setProgressTintColor:"];
 }
 
@@ -85,7 +85,7 @@
 
 - (void)setDk_trackTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_trackTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    self.trackTintColor = picker();
+    [self sm_hook_setTrackTintColor:picker()];
     [self.pickers setValue:[picker copy] forKey:@"setTrackTintColor:"];
 }
 
