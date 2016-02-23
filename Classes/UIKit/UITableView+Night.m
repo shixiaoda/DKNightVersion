@@ -22,8 +22,8 @@
 
 + (void)load {
     SEL selectors[] = {
-    @selector(setSeparatorColor:),
-	
+      @selector(setSeparatorColor:),
+	  
     };
 
     for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
@@ -35,13 +35,8 @@
     }
 }
 
-
 - (void)sm_hook_setSeparatorColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_separatorColorPicker && self.dk_separatorColorPicker() == color)
+    if (self.dk_separatorColorPicker || !color)
     {
         [self sm_hook_setSeparatorColor:color];
     }
@@ -52,16 +47,17 @@
 }
 
 
-
 - (DKColorPicker)dk_separatorColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_separatorColorPicker));
 }
 
 - (void)setDk_separatorColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_separatorColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
     [self sm_hook_setSeparatorColor:picker()];
-    [self.pickers setValue:[picker copy] forKey:@"setSeparatorColor:"];
+    [self.pickers setValue:[picker copy] forKey:@"sm_hook_setSeparatorColor:"];
 }
+    
 
 
 @end

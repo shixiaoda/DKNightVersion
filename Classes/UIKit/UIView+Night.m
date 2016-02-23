@@ -22,9 +22,8 @@
 
 + (void)load {
     SEL selectors[] = {
-    @selector(setBackgroundColor:),
-	@selector(setTintColor:),
-	
+      @selector(setBackgroundColor:),
+	    
     };
 
     for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
@@ -36,13 +35,8 @@
     }
 }
 
-
 - (void)sm_hook_setBackgroundColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_backgroundColorPicker && self.dk_backgroundColorPicker() == color)
+    if (self.dk_backgroundColorPicker || !color)
     {
         [self sm_hook_setBackgroundColor:color];
     }
@@ -53,11 +47,7 @@
 }
 
 - (void)sm_hook_setTintColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_tintColorPicker && self.dk_tintColorPicker() == color)
+    if (self.dk_tintColorPicker || !color)
     {
         [self sm_hook_setTintColor:color];
     }
@@ -68,16 +58,17 @@
 }
 
 
-
 - (DKColorPicker)dk_backgroundColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_backgroundColorPicker));
 }
 
 - (void)setDk_backgroundColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_backgroundColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
     [self sm_hook_setBackgroundColor:picker()];
-    [self.pickers setValue:[picker copy] forKey:@"setBackgroundColor:"];
+    [self.pickers setValue:[picker copy] forKey:@"sm_hook_setBackgroundColor:"];
 }
+    
 
 - (DKColorPicker)dk_tintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_tintColorPicker));
@@ -85,9 +76,11 @@
 
 - (void)setDk_tintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_tintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self sm_hook_setTintColor:picker()];
+
+    self.tintColor =  picker();
     [self.pickers setValue:[picker copy] forKey:@"setTintColor:"];
 }
+    
 
 
 @end

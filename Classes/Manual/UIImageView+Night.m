@@ -20,7 +20,7 @@
 
 + (void)load {
     SEL selectors[] = {
-        @selector(setImage:),
+//        @selector(setImage:),
 //        @selector(setShadowColor:),
 //        @selector(setHighlightedTextColor:),
         

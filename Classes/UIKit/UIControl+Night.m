@@ -22,8 +22,7 @@
 
 + (void)load {
     SEL selectors[] = {
-    @selector(setTintColor:),
-	
+      
     };
 
     for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
@@ -35,13 +34,8 @@
     }
 }
 
-
 - (void)sm_hook_setTintColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_tintColorPicker && self.dk_tintColorPicker() == color)
+    if (self.dk_tintColorPicker || !color)
     {
         [self sm_hook_setTintColor:color];
     }
@@ -52,16 +46,17 @@
 }
 
 
-
 - (DKColorPicker)dk_tintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_tintColorPicker));
 }
 
 - (void)setDk_tintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_tintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self sm_hook_setTintColor:picker()];
+
+    self.tintColor =  picker();
     [self.pickers setValue:[picker copy] forKey:@"setTintColor:"];
 }
+    
 
 
 @end

@@ -22,9 +22,9 @@
 
 + (void)load {
     SEL selectors[] = {
-    @selector(setPageIndicatorTintColor:),
-	@selector(setCurrentPageIndicatorTintColor:),
-	
+      @selector(setPageIndicatorTintColor:),
+	    @selector(setCurrentPageIndicatorTintColor:),
+	  
     };
 
     for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
@@ -36,13 +36,8 @@
     }
 }
 
-
 - (void)sm_hook_setPageIndicatorTintColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_pageIndicatorTintColorPicker && self.dk_pageIndicatorTintColorPicker() == color)
+    if (self.dk_pageIndicatorTintColorPicker || !color)
     {
         [self sm_hook_setPageIndicatorTintColor:color];
     }
@@ -53,11 +48,7 @@
 }
 
 - (void)sm_hook_setCurrentPageIndicatorTintColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_currentPageIndicatorTintColorPicker && self.dk_currentPageIndicatorTintColorPicker() == color)
+    if (self.dk_currentPageIndicatorTintColorPicker || !color)
     {
         [self sm_hook_setCurrentPageIndicatorTintColor:color];
     }
@@ -68,16 +59,17 @@
 }
 
 
-
 - (DKColorPicker)dk_pageIndicatorTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_pageIndicatorTintColorPicker));
 }
 
 - (void)setDk_pageIndicatorTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_pageIndicatorTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
     [self sm_hook_setPageIndicatorTintColor:picker()];
-    [self.pickers setValue:[picker copy] forKey:@"setPageIndicatorTintColor:"];
+    [self.pickers setValue:[picker copy] forKey:@"sm_hook_setPageIndicatorTintColor:"];
 }
+    
 
 - (DKColorPicker)dk_currentPageIndicatorTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_currentPageIndicatorTintColorPicker));
@@ -85,9 +77,11 @@
 
 - (void)setDk_currentPageIndicatorTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_currentPageIndicatorTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
     [self sm_hook_setCurrentPageIndicatorTintColor:picker()];
-    [self.pickers setValue:[picker copy] forKey:@"setCurrentPageIndicatorTintColor:"];
+    [self.pickers setValue:[picker copy] forKey:@"sm_hook_setCurrentPageIndicatorTintColor:"];
 }
+    
 
 
 @end

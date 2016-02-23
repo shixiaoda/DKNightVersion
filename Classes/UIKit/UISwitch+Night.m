@@ -22,9 +22,9 @@
 
 + (void)load {
     SEL selectors[] = {
-    @selector(setOnTintColor:),
-	@selector(setThumbTintColor:),
-	
+      @selector(setOnTintColor:),
+	    @selector(setThumbTintColor:),
+	  
     };
 
     for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
@@ -36,13 +36,8 @@
     }
 }
 
-
 - (void)sm_hook_setOnTintColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_onTintColorPicker && self.dk_onTintColorPicker() == color)
+    if (self.dk_onTintColorPicker || !color)
     {
         [self sm_hook_setOnTintColor:color];
     }
@@ -53,11 +48,7 @@
 }
 
 - (void)sm_hook_setThumbTintColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_thumbTintColorPicker && self.dk_thumbTintColorPicker() == color)
+    if (self.dk_thumbTintColorPicker || !color)
     {
         [self sm_hook_setThumbTintColor:color];
     }
@@ -68,16 +59,17 @@
 }
 
 
-
 - (DKColorPicker)dk_onTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_onTintColorPicker));
 }
 
 - (void)setDk_onTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_onTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
     [self sm_hook_setOnTintColor:picker()];
-    [self.pickers setValue:[picker copy] forKey:@"setOnTintColor:"];
+    [self.pickers setValue:[picker copy] forKey:@"sm_hook_setOnTintColor:"];
 }
+    
 
 - (DKColorPicker)dk_thumbTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_thumbTintColorPicker));
@@ -85,9 +77,11 @@
 
 - (void)setDk_thumbTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_thumbTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
     [self sm_hook_setThumbTintColor:picker()];
-    [self.pickers setValue:[picker copy] forKey:@"setThumbTintColor:"];
+    [self.pickers setValue:[picker copy] forKey:@"sm_hook_setThumbTintColor:"];
 }
+    
 
 
 @end

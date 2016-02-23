@@ -22,9 +22,9 @@
 
 + (void)load {
     SEL selectors[] = {
-    @selector(setProgressTintColor:),
-	@selector(setTrackTintColor:),
-	
+      @selector(setProgressTintColor:),
+	    @selector(setTrackTintColor:),
+	  
     };
 
     for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
@@ -36,13 +36,8 @@
     }
 }
 
-
 - (void)sm_hook_setProgressTintColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_progressTintColorPicker && self.dk_progressTintColorPicker() == color)
+    if (self.dk_progressTintColorPicker || !color)
     {
         [self sm_hook_setProgressTintColor:color];
     }
@@ -53,11 +48,7 @@
 }
 
 - (void)sm_hook_setTrackTintColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_trackTintColorPicker && self.dk_trackTintColorPicker() == color)
+    if (self.dk_trackTintColorPicker || !color)
     {
         [self sm_hook_setTrackTintColor:color];
     }
@@ -68,16 +59,17 @@
 }
 
 
-
 - (DKColorPicker)dk_progressTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_progressTintColorPicker));
 }
 
 - (void)setDk_progressTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_progressTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
     [self sm_hook_setProgressTintColor:picker()];
-    [self.pickers setValue:[picker copy] forKey:@"setProgressTintColor:"];
+    [self.pickers setValue:[picker copy] forKey:@"sm_hook_setProgressTintColor:"];
 }
+    
 
 - (DKColorPicker)dk_trackTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_trackTintColorPicker));
@@ -85,9 +77,11 @@
 
 - (void)setDk_trackTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_trackTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
     [self sm_hook_setTrackTintColor:picker()];
-    [self.pickers setValue:[picker copy] forKey:@"setTrackTintColor:"];
+    [self.pickers setValue:[picker copy] forKey:@"sm_hook_setTrackTintColor:"];
 }
+    
 
 
 @end

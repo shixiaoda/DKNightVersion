@@ -22,7 +22,7 @@
 
 + (void)load {
     SEL selectors[] = {
-    <% klass.properties.each do |property| %><%= "@selector(set#{property.name.gsub(/\b\w/) { |w| w.upcase }}:),\n\t"%><% end %>
+    <% klass.properties.each do |property| %> <% if !property.name.include?"tint" %> <%= "@selector(#{property.setter}),\n\t"%> <% end %> <% end %>
     };
 
     for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
@@ -33,14 +33,9 @@
         method_exchangeImplementations(originalMethod, swizzledMethod);
     }
 }
-
 <% klass.properties.each do |property| %><%= """
-- (void)sm_hook_set#{property.name.gsub(/\b\w/) { |w| w.upcase }}:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_#{property.name}Picker && self.dk_#{property.name}Picker() == color)
+- (void)sm_hook_#{property.setter}(UIColor *)color {
+    if (self.dk_#{property.name}Picker || !color)
     {
         [self sm_hook_set#{property.name.gsub(/\b\w/) { |w| w.upcase }}:color];
     }
@@ -50,7 +45,6 @@
     }
 }
 """ %><% end %>
-
 <% klass.properties.each do |property| %><%= """
 - (DKColorPicker)dk_#{property.name}Picker {
     return objc_getAssociatedObject(self, @selector(dk_#{property.name}Picker));
@@ -58,9 +52,15 @@
 
 - (void)setDk_#{property.name}Picker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_#{property.name}Picker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self sm_hook_set#{property.name.gsub(/\b\w/) { |w| w.upcase }}:picker()];
+""" %><% if !property.name.include?"tint" %>
+    <%= """[self sm_hook_set#{property.name.gsub(/\b\w/) { |w| w.upcase }}:picker()];
+    [self.pickers setValue:[picker copy] forKey:@\"sm_hook_#{property.setter}\"];
+}"""%>
+    <% else %>
+    <%= """self.#{property.name} =  picker();
     [self.pickers setValue:[picker copy] forKey:@\"#{property.setter}\"];
-}
-""" %><% end %>
+}"""%>
+    <% end %>
+<% end %>
 
 @end

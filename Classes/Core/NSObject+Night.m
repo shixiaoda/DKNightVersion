@@ -54,6 +54,9 @@
 
 - (void)night_updateColor {
     [self.pickers enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull selector, DKPicker  _Nonnull picker, BOOL * _Nonnull stop) {
+        if ([NSStringFromClass(self.class) isEqualToString:@"TableViewCell"]) {
+//            NSLog(@"picker = %@",picker());
+        }
         SEL sel = NSSelectorFromString(selector);
         id result = picker();
         [UIView animateWithDuration:DKNightVersionAnimationDuration

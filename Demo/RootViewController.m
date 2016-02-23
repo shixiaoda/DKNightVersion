@@ -48,7 +48,9 @@
 - (void)change {
     if ([DKNightVersionManager currentThemeVersion] == DKThemeVersionNight) {
         [DKNightVersionManager dawnComing];
-    } else {
+    } else if ([DKNightVersionManager currentThemeVersion] == DKThemeVersionNormal) {
+        [DKNightVersionManager testComing];
+    } else if ([DKNightVersionManager currentThemeVersion] == DKThemeVersionTest) {
         [DKNightVersionManager nightFalling];
     }
 }
@@ -71,9 +73,22 @@
     return 1;
 }
 
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+- (void)tableView:(UITableView *)tableView willDisplayCell:(nonnull UITableViewCell *)cell forRowAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    cell.dk_backgroundColorPicker = DKColorWithRGB(0xffffff, 0x343434);
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    NSLog(@"index .row = %ld",(long)indexPath.row);
+    if (indexPath.row == 7) {
+//        NSLog(@"picker = %@",cell.dk_backgroundColorPicker());
+        NSLog(@"123");
+    }
+    TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    if (indexPath.row == 7) {
+        NSLog(@"picker = %@",cell.dk_backgroundColorPicker());
+    }
+//    NSLog(@"cell backgroudColor = %@",cell.backgroundColor);
     return cell;
 }
 

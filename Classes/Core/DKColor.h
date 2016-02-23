@@ -12,6 +12,7 @@ typedef UIColor *(^DKColorPicker)(void);
 
 DKColorPicker DKColorWithRGB(NSUInteger normal, NSUInteger night);
 DKColorPicker DKColorWithColors(UIColor *normalColor, UIColor *nightColor);
+DKColorPicker DKColorWithThreeColors(UIColor *normalColor, UIColor *nightColor, UIColor *testColor);
 
 @interface DKColor : NSObject
 

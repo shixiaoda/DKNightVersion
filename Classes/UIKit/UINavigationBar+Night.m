@@ -22,9 +22,8 @@
 
 + (void)load {
     SEL selectors[] = {
-    @selector(setBarTintColor:),
-	@selector(setTintColor:),
-	
+      @selector(setBarTintColor:),
+	    
     };
 
     for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
@@ -36,13 +35,8 @@
     }
 }
 
-
 - (void)sm_hook_setBarTintColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_barTintColorPicker && self.dk_barTintColorPicker() == color)
+    if (self.dk_barTintColorPicker || !color)
     {
         [self sm_hook_setBarTintColor:color];
     }
@@ -53,11 +47,7 @@
 }
 
 - (void)sm_hook_setTintColor:(UIColor *)color {
-    if  (!color)
-    {
-        return;
-    }
-    if (self.dk_tintColorPicker && self.dk_tintColorPicker() == color)
+    if (self.dk_tintColorPicker || !color)
     {
         [self sm_hook_setTintColor:color];
     }
@@ -68,16 +58,17 @@
 }
 
 
-
 - (DKColorPicker)dk_barTintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_barTintColorPicker));
 }
 
 - (void)setDk_barTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_barTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
+
     [self sm_hook_setBarTintColor:picker()];
-    [self.pickers setValue:[picker copy] forKey:@"setBarTintColor:"];
+    [self.pickers setValue:[picker copy] forKey:@"sm_hook_setBarTintColor:"];
 }
+    
 
 - (DKColorPicker)dk_tintColorPicker {
     return objc_getAssociatedObject(self, @selector(dk_tintColorPicker));
@@ -85,9 +76,11 @@
 
 - (void)setDk_tintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_tintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
-    [self sm_hook_setTintColor:picker()];
+
+    self.tintColor =  picker();
     [self.pickers setValue:[picker copy] forKey:@"setTintColor:"];
 }
+    
 
 
 @end

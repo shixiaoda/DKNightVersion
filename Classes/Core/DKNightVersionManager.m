@@ -56,6 +56,17 @@ CGFloat const DKNightVersionAnimationDuration = 0.3;
     }
 }
 
++ (void)testComing {
+    DKNightVersionManager *manager = [DKNightVersionManager sharedNightVersionManager];
+    manager.themeVersion = DKThemeVersionTest;
+    if (manager.shouldChangeStatusBar) {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+#pragma clang diagnostic pop
+    }
+}
+
 + (DKThemeVersion)currentThemeVersion {
     return [DKNightVersionManager sharedNightVersionManager].themeVersion;
 }
