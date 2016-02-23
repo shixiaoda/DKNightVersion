@@ -18,38 +18,35 @@
 
 @implementation UIImageView (Night)
 
-+ (void)load {
-    SEL selectors[] = {
-//        @selector(setImage:),
-//        @selector(setShadowColor:),
-//        @selector(setHighlightedTextColor:),
-        
-    };
-    
-    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
-        SEL originalSelector = selectors[index];
-        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
-        Method originalMethod = class_getInstanceMethod(self, originalSelector);
-        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
-        method_exchangeImplementations(originalMethod, swizzledMethod);
-    }
-}
+//+ (void)load {
+//    SEL selectors[] = {
+////        @selector(setImage:),
+//    };
+//    
+//    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+//        SEL originalSelector = selectors[index];
+//        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+//        Method originalMethod = class_getInstanceMethod(self, originalSelector);
+//        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
+//        method_exchangeImplementations(originalMethod, swizzledMethod);
+//    }
+//}
 
-- (void)sm_hook_setImage:(UIImage *)image
-{
-    if  (!image)
-    {
-        return;
-    }
-    if (self.dk_imagePicker && self.dk_imagePicker() == image)
-    {
-        [self sm_hook_setImage:image];
-    }
-    else
-    {
-        self.dk_imagePicker = [DKImage defaultImagePicker:image];
-    }
-}
+//- (void)sm_hook_setImage:(UIImage *)image
+//{
+//    if  (!image)
+//    {
+//        return;
+//    }
+//    if (self.dk_imagePicker && self.dk_imagePicker() == image)
+//    {
+//        [self sm_hook_setImage:image];
+//    }
+//    else
+//    {
+//        self.dk_imagePicker = [DKImage defaultImagePicker:image];
+//    }
+//}
 
 - (instancetype)dk_initWithImagePicker:(DKImagePicker)picker {
     UIImageView *imageView = [self initWithImage:picker()];
@@ -65,7 +62,6 @@
     objc_setAssociatedObject(self, @selector(dk_imagePicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
     self.image = picker();
     [self.pickers setValue:[picker copy] forKey:@"setImage:"];
-
 }
 
 @end
