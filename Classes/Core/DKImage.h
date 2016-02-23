@@ -18,5 +18,5 @@ DKImagePicker DKImageWithImages(UIImage *normal, UIImage *night);
 + (DKImagePicker)imageNamed:(NSString *)name;
 + (DKImagePicker)pickerWithNormalImage:(UIImage *)normalImage nightImage:(UIImage *)nightImage;
 
-+ (DKImagePicker)defaultImagePicker:(UIImage *)image;
+//+ (DKImagePicker)defaultImagePicker:(UIImage *)image;
 @end
