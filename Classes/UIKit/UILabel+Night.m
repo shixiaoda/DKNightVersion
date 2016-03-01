@@ -37,10 +37,17 @@
     }
 }
 
+
+
 - (void)sm_hook_setTextColor:(UIColor *)color {
-    if (self.dk_textColorPicker || !color)
+    if (!color)
     {
         [self sm_hook_setTextColor:color];
+        return;
+    }
+    if (self.dk_textColorPicker && [self.dk_textColorPicker() isEqual:color])
+    {
+        [self sm_hook_setTextColor:self.dk_textColorPicker()];
     }
     else
     {
@@ -48,10 +55,19 @@
     }
 }
 
+
+
+
+
 - (void)sm_hook_setShadowColor:(UIColor *)color {
-    if (self.dk_shadowColorPicker || !color)
+    if (!color)
     {
         [self sm_hook_setShadowColor:color];
+        return;
+    }
+    if (self.dk_shadowColorPicker && [self.dk_shadowColorPicker() isEqual:color])
+    {
+        [self sm_hook_setShadowColor:self.dk_shadowColorPicker()];
     }
     else
     {
@@ -59,16 +75,27 @@
     }
 }
 
+
+
+
+
 - (void)sm_hook_setHighlightedTextColor:(UIColor *)color {
-    if (self.dk_highlightedTextColorPicker || !color)
+    if (!color)
     {
         [self sm_hook_setHighlightedTextColor:color];
+        return;
+    }
+    if (self.dk_highlightedTextColorPicker && [self.dk_highlightedTextColorPicker() isEqual:color])
+    {
+        [self sm_hook_setHighlightedTextColor:self.dk_highlightedTextColorPicker()];
     }
     else
     {
         self.dk_highlightedTextColorPicker = [DKColor defaultColorPicker:color];
     }
 }
+
+
 
 
 - (DKColorPicker)dk_textColorPicker {

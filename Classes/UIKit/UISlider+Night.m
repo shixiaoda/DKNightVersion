@@ -37,10 +37,17 @@
     }
 }
 
+
+
 - (void)sm_hook_setMinimumTrackTintColor:(UIColor *)color {
-    if (self.dk_minimumTrackTintColorPicker || !color)
+    if (!color)
     {
         [self sm_hook_setMinimumTrackTintColor:color];
+        return;
+    }
+    if (self.dk_minimumTrackTintColorPicker && [self.dk_minimumTrackTintColorPicker() isEqual:color])
+    {
+        [self sm_hook_setMinimumTrackTintColor:self.dk_minimumTrackTintColorPicker()];
     }
     else
     {
@@ -48,10 +55,19 @@
     }
 }
 
+
+
+
+
 - (void)sm_hook_setMaximumTrackTintColor:(UIColor *)color {
-    if (self.dk_maximumTrackTintColorPicker || !color)
+    if (!color)
     {
         [self sm_hook_setMaximumTrackTintColor:color];
+        return;
+    }
+    if (self.dk_maximumTrackTintColorPicker && [self.dk_maximumTrackTintColorPicker() isEqual:color])
+    {
+        [self sm_hook_setMaximumTrackTintColor:self.dk_maximumTrackTintColorPicker()];
     }
     else
     {
@@ -59,16 +75,27 @@
     }
 }
 
+
+
+
+
 - (void)sm_hook_setThumbTintColor:(UIColor *)color {
-    if (self.dk_thumbTintColorPicker || !color)
+    if (!color)
     {
         [self sm_hook_setThumbTintColor:color];
+        return;
+    }
+    if (self.dk_thumbTintColorPicker && [self.dk_thumbTintColorPicker() isEqual:color])
+    {
+        [self sm_hook_setThumbTintColor:self.dk_thumbTintColorPicker()];
     }
     else
     {
         self.dk_thumbTintColorPicker = [DKColor defaultColorPicker:color];
     }
 }
+
+
 
 
 - (DKColorPicker)dk_minimumTrackTintColorPicker {

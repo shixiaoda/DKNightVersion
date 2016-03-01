@@ -44,5 +44,6 @@ DKColorPicker DKColorWithThreeColors(UIColor *normalColor, UIColor *nightColor, 
 + (DKColorPicker)clearColor;
 
 + (DKColorPicker)defaultColorPicker:(UIColor *)color;
++ (DKColorPicker)defaultTitleColorPicker:(UIColor *)color;
 
 @end

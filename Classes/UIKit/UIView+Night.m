@@ -35,10 +35,17 @@
     }
 }
 
+
+
 - (void)sm_hook_setBackgroundColor:(UIColor *)color {
-    if (self.dk_backgroundColorPicker || !color)
+    if (!color)
     {
         [self sm_hook_setBackgroundColor:color];
+        return;
+    }
+    if (self.dk_backgroundColorPicker && [self.dk_backgroundColorPicker() isEqual:color])
+    {
+        [self sm_hook_setBackgroundColor:self.dk_backgroundColorPicker()];
     }
     else
     {
@@ -46,16 +53,9 @@
     }
 }
 
-- (void)sm_hook_setTintColor:(UIColor *)color {
-    if (self.dk_tintColorPicker || !color)
-    {
-        [self sm_hook_setTintColor:color];
-    }
-    else
-    {
-        self.dk_tintColorPicker = [DKColor defaultColorPicker:color];
-    }
-}
+
+
+
 
 
 - (DKColorPicker)dk_backgroundColorPicker {

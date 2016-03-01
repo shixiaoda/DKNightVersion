@@ -36,10 +36,17 @@
     }
 }
 
+
+
 - (void)sm_hook_setProgressTintColor:(UIColor *)color {
-    if (self.dk_progressTintColorPicker || !color)
+    if (!color)
     {
         [self sm_hook_setProgressTintColor:color];
+        return;
+    }
+    if (self.dk_progressTintColorPicker && [self.dk_progressTintColorPicker() isEqual:color])
+    {
+        [self sm_hook_setProgressTintColor:self.dk_progressTintColorPicker()];
     }
     else
     {
@@ -47,16 +54,27 @@
     }
 }
 
+
+
+
+
 - (void)sm_hook_setTrackTintColor:(UIColor *)color {
-    if (self.dk_trackTintColorPicker || !color)
+    if (!color)
     {
         [self sm_hook_setTrackTintColor:color];
+        return;
+    }
+    if (self.dk_trackTintColorPicker && [self.dk_trackTintColorPicker() isEqual:color])
+    {
+        [self sm_hook_setTrackTintColor:self.dk_trackTintColorPicker()];
     }
     else
     {
         self.dk_trackTintColorPicker = [DKColor defaultColorPicker:color];
     }
 }
+
+
 
 
 - (DKColorPicker)dk_progressTintColorPicker {

@@ -34,16 +34,7 @@
     }
 }
 
-- (void)sm_hook_setTintColor:(UIColor *)color {
-    if (self.dk_tintColorPicker || !color)
-    {
-        [self sm_hook_setTintColor:color];
-    }
-    else
-    {
-        self.dk_tintColorPicker = [DKColor defaultColorPicker:color];
-    }
-}
+
 
 
 - (DKColorPicker)dk_tintColorPicker {

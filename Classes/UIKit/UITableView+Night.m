@@ -35,16 +35,25 @@
     }
 }
 
+
+
 - (void)sm_hook_setSeparatorColor:(UIColor *)color {
-    if (self.dk_separatorColorPicker || !color)
+    if (!color)
     {
         [self sm_hook_setSeparatorColor:color];
+        return;
+    }
+    if (self.dk_separatorColorPicker && [self.dk_separatorColorPicker() isEqual:color])
+    {
+        [self sm_hook_setSeparatorColor:self.dk_separatorColorPicker()];
     }
     else
     {
         self.dk_separatorColorPicker = [DKColor defaultColorPicker:color];
     }
 }
+
+
 
 
 - (DKColorPicker)dk_separatorColorPicker {

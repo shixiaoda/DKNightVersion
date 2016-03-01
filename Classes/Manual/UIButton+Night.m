@@ -17,14 +17,51 @@
 
 @implementation UIButton (Night)
 
-- (void)dk_setTitleColorPicker:(DKColorPicker)picker forState:(UIControlState)state {
-    [self setTitleColor:picker() forState:state];
++ (void)load {
+    SEL selectors[] = {
+        @selector(setTitleColor:forState:),
+    };
+    
+    for (NSUInteger index = 0; index < sizeof(selectors) / sizeof(SEL); ++index) {
+        SEL originalSelector = selectors[index];
+        SEL swizzledSelector = NSSelectorFromString([@"sm_hook_" stringByAppendingString:NSStringFromSelector(originalSelector)]);
+        Method originalMethod = class_getInstanceMethod(self, originalSelector);
+        Method swizzledMethod = class_getInstanceMethod(self, swizzledSelector);
+        method_exchangeImplementations(originalMethod, swizzledMethod);
+    }
+}
+
+- (void)sm_hook_setTitleColor:(UIColor *)color forState:(UIControlState)state
+{
+    if (!color)
+    {
+        [self sm_hook_setTitleColor:color forState:state];
+        return;
+    }
+    
     NSString *key = [NSString stringWithFormat:@"%@", @(state)];
     NSMutableDictionary *dictionary = [self.pickers valueForKey:key];
     if (!dictionary) {
         dictionary = [[NSMutableDictionary alloc] init];
     }
-    [dictionary setValue:[picker copy] forKey:NSStringFromSelector(@selector(setTitleColor:forState:))];
+    if (dictionary[key])
+    {
+        [self sm_hook_setTitleColor:color forState:state];
+    }
+    else
+    {
+        [self dk_setTitleColorPicker:[DKColor defaultTitleColorPicker:color] forState:state];
+    }
+}
+
+- (void)dk_setTitleColorPicker:(DKColorPicker)picker forState:(UIControlState)state {
+    [self sm_hook_setTitleColor:picker() forState:state];
+    NSString *key = [NSString stringWithFormat:@"%@", @(state)];
+    NSMutableDictionary *dictionary = [self.pickers valueForKey:key];
+    if (!dictionary) {
+        dictionary = [[NSMutableDictionary alloc] init];
+    }
+    [dictionary setValue:[picker copy] forKey:NSStringFromSelector(@selector(sm_hook_setTitleColor:forState:))];
     [self.pickers setValue:dictionary forKey:key];
 }
 
@@ -67,7 +104,9 @@
                                      } else if ([selector isEqualToString:NSStringFromSelector(@selector(setImage:forState:))]) {
                                          UIImage *resultImage = ((DKImagePicker)picker)();
                                          [self setImage:resultImage forState:state];
-                                     }
+                                     } else if ([selector isEqualToString:NSStringFromSelector(@selector(sm_hook_setTitleColor:forState:))]) {
+                                         UIColor *resultColor = picker();
+                                         [self sm_hook_setTitleColor:resultColor forState:state];                                     }
                                  }];
             }];
         } else {
