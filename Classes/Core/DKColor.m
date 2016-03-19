@@ -37,6 +37,9 @@ DKColorPicker DKColorWithRGB(NSUInteger normal, NSUInteger night) {
 
 DKColorPicker DKColorWithColors(UIColor *normalColor, UIColor *nightColor) {
     return ^(BOOL bOriginal) {
+        if (bOriginal) {
+            return normalColor;
+        }
         return [DKNightVersionManager currentThemeVersion] == DKThemeVersionNormal ? normalColor : nightColor;
     };
 }
@@ -44,14 +47,11 @@ DKColorPicker DKColorWithColors(UIColor *normalColor, UIColor *nightColor) {
 DKColorPicker DKColorWithThreeColors(UIColor *normalColor, UIColor *nightColor, UIColor *testColor)
 {
     return ^(BOOL bOriginal) {
+        if (bOriginal) {
+            return normalColor;
+        }
         return [DKNightVersionManager currentThemeVersion] == DKThemeVersionNormal ? normalColor :
         ([DKNightVersionManager currentThemeVersion] == DKThemeVersionNight ? nightColor : testColor);
-    };
-}
-
-+ (DKColorPicker)pickerWithNormalColor:(UIColor *)normalColor nightColor:(UIColor *)nightColor {
-    return ^(BOOL bOriginal) {
-        return [DKNightVersionManager currentThemeVersion] == DKThemeVersionNormal ? normalColor : nightColor;
     };
 }
 

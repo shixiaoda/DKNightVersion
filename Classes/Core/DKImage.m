@@ -23,6 +23,9 @@ DKImagePicker DKImageWithImages(UIImage *normal, UIImage *night) {
     NSAssert(normalImage, @"- pickerWithNormalImage:nightImage: lack parameter normalImage");
     NSAssert(nightImage, @"- pickerWithNormalImage:nightImage: lack parameter nightImage");
     return ^(BOOL bOriginal) {
+        if (bOriginal) {
+            return normalImage;
+        }
         return [DKNightVersionManager currentThemeVersion] == DKThemeVersionNormal ? normalImage : nightImage;
     };
 }
