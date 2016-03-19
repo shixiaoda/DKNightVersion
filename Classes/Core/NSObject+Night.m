@@ -55,7 +55,7 @@
 - (void)night_updateColor {
     [self.pickers enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull selector, DKPicker  _Nonnull picker, BOOL * _Nonnull stop) {
         SEL sel = NSSelectorFromString(selector);
-        id result = picker();
+        id result = picker(NO);
         [UIView animateWithDuration:DKNightVersionAnimationDuration
                          animations:^{
 #pragma clang diagnostic push

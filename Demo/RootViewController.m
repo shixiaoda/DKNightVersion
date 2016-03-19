@@ -38,21 +38,17 @@
 
     self.tableView.dk_backgroundColorPicker =  DKColorWithRGB(0xffffff, 0x343434);
     self.tableView.dk_separatorColorPicker = DKColorWithRGB(0xaaaaaa, 0x313131);
-    navigationLabel.dk_textColorPicker = DKColorWithColors([UIColor blackColor], [UIColor whiteColor]);
+//    navigationLabel.dk_textColorPicker = DKColorWithColors([UIColor blackColor], [UIColor whiteColor]);
+    navigationLabel.textColor= [UIColor blackColor];
     self.navigationController.navigationBar.dk_barTintColorPicker = DKColorWithRGB(0xffffff, 0x444444);
     self.navigationItem.leftBarButtonItem.dk_tintColorPicker = DKColorWithColors([UIColor blueColor], [UIColor whiteColor]);
     self.navigationItem.rightBarButtonItem.dk_tintColorPicker = DKColorWithColors([UIColor blueColor], [UIColor whiteColor]);
-    
-    
-
 }
 
 - (void)change {
     if ([DKNightVersionManager currentThemeVersion] == DKThemeVersionNight) {
         [DKNightVersionManager dawnComing];
     } else if ([DKNightVersionManager currentThemeVersion] == DKThemeVersionNormal) {
-        [DKNightVersionManager testComing];
-    } else if ([DKNightVersionManager currentThemeVersion] == DKThemeVersionTest) {
         [DKNightVersionManager nightFalling];
     }
 }
@@ -81,16 +77,7 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    NSLog(@"index .row = %ld",(long)indexPath.row);
-    if (indexPath.row == 7) {
-//        NSLog(@"picker = %@",cell.dk_backgroundColorPicker());
-        NSLog(@"123");
-    }
     TableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
-    if (indexPath.row == 7) {
-        NSLog(@"picker = %@",cell.dk_backgroundColorPicker());
-    }
-//    NSLog(@"cell backgroudColor = %@",cell.backgroundColor);
     return cell;
 }
 

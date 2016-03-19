@@ -36,27 +36,27 @@ DKColorPicker DKColorWithRGB(NSUInteger normal, NSUInteger night) {
 }
 
 DKColorPicker DKColorWithColors(UIColor *normalColor, UIColor *nightColor) {
-    return ^() {
+    return ^(BOOL bOriginal) {
         return [DKNightVersionManager currentThemeVersion] == DKThemeVersionNormal ? normalColor : nightColor;
     };
 }
 
 DKColorPicker DKColorWithThreeColors(UIColor *normalColor, UIColor *nightColor, UIColor *testColor)
 {
-    return ^() {
+    return ^(BOOL bOriginal) {
         return [DKNightVersionManager currentThemeVersion] == DKThemeVersionNormal ? normalColor :
         ([DKNightVersionManager currentThemeVersion] == DKThemeVersionNight ? nightColor : testColor);
     };
 }
 
 + (DKColorPicker)pickerWithNormalColor:(UIColor *)normalColor nightColor:(UIColor *)nightColor {
-    return ^() {
+    return ^(BOOL bOriginal) {
         return [DKNightVersionManager currentThemeVersion] == DKThemeVersionNormal ? normalColor : nightColor;
     };
 }
 
 + (DKColorPicker)pickerWithUIColor:(UIColor *)color {
-    return ^() {
+    return ^(BOOL bOriginal) {
         return color;
     };
 }
@@ -149,46 +149,6 @@ DKColorPicker DKColorWithThreeColors(UIColor *normalColor, UIColor *nightColor, 
 
 + (DKColorPicker)defaultColorPicker:(UIColor *)color
 {
-    return [DKColor defaultColorPicker:color isText:NO];
-}
-
-+ (DKColorPicker)defaultColorPicker:(UIColor *)color isText:(BOOL)isText
-{
-//    UIColor *color1 = [UIColor whiteColor];
-//    UIColor *color2 = [UIColor blackColor];
-//    UIColor *color3 = [UIColor grayColor];
-//    
-//    UIColor *color4 = RGBColor(0, 0, 0);
-//    UIColor *color5 = RGBColor(255, 255, 255);
-//
-//    
-//    
-//    const CGFloat * com1 =  CGColorGetComponents(color1.CGColor);
-//    NSLog(@" whiteColor %f %f %f %f",com1[0],com1[1],com1[2],com1[3]);
-//    const CGFloat * com2 =CGColorGetComponents(color2.CGColor);
-//    NSLog(@" blackColor %f %f %f %f",com2[0],com2[1],com2[2],com2[3]);
-//    const CGFloat * com3 = CGColorGetComponents(color3.CGColor);
-//    NSLog(@" grayColor %f %f %f %f",com3[0],com3[1],com3[2],com3[3]);
-//    const CGFloat * com4 = CGColorGetComponents(color4.CGColor);
-//    NSLog(@"0 0 0 1%f %f %f %f",com4[0],com4[1],com4[2],com4[3]);
-//
-//    const CGFloat * com5 = CGColorGetComponents(color5.CGColor);
-//    NSLog(@"255 255 255 1%f %f %f %f",com5[0],com5[1],com5[2],com5[3]);
-//    
-//    if ([color5 isEqual:color1]) {
-//        NSLog(@"YES");
-//    }
-//    if (color) {
-//        const CGFloat *com1 = CGColorGetComponents(color.CGColor);
-//        NSString *colorCode = [NSString stringWithFormat:@"%d-%d-%d-%d",(int)(com1[0]*255),(int)(com1[1]*255),(int)(com1[2]*255),(int)(com1[3]*255)];
-//        NSLog(@"colorCode2 = %@",colorCode);
-//        if ([colorCode isEqualToString:@"231-255-255-255"])
-//        {
-//            NSLog(@"%s %d %@",__func__, __LINE__, NSStringFromClass([self class]) );
-//        }
-//
-//    }
-    
     if ([color isEqual:[UIColor whiteColor]] )//(255,255,0,0)
     {
         return DKColorWithColors(color,night_whiteColor);
@@ -199,6 +159,14 @@ DKColorPicker DKColorWithThreeColors(UIColor *normalColor, UIColor *nightColor, 
     )
     {
         return DKColorWithColors(color,night_blackColor);
+    }
+    else if ([color isEqual:[UIColor darkGrayColor]])
+    {
+        return DKColorWithColors([UIColor darkGrayColor], [UIColor redColor]);
+    }
+    else if ([color isEqual:[UIColor blackColor]])
+    {
+        return DKColorWithColors([UIColor blackColor], [UIColor whiteColor]);
     }
     
     return DKColorWithColors(color,color);

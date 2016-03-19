@@ -38,14 +38,14 @@
 
 
 - (void)sm_hook_setSeparatorColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setSeparatorColor:color];
         return;
     }
-    if (self.dk_separatorColorPicker && [self.dk_separatorColorPicker() isEqual:color])
+    if (self.dk_separatorColorPicker && [self.dk_separatorColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setSeparatorColor:self.dk_separatorColorPicker()];
+        [self sm_hook_setSeparatorColor:self.dk_separatorColorPicker(NO)];
     }
     else
     {
@@ -63,7 +63,7 @@
 - (void)setDk_separatorColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_separatorColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setSeparatorColor:picker()];
+    [self sm_hook_setSeparatorColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setSeparatorColor:"];
 }
     

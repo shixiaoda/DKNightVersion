@@ -40,14 +40,14 @@
 
 
 - (void)sm_hook_setMinimumTrackTintColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setMinimumTrackTintColor:color];
         return;
     }
-    if (self.dk_minimumTrackTintColorPicker && [self.dk_minimumTrackTintColorPicker() isEqual:color])
+    if (self.dk_minimumTrackTintColorPicker && [self.dk_minimumTrackTintColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setMinimumTrackTintColor:self.dk_minimumTrackTintColorPicker()];
+        [self sm_hook_setMinimumTrackTintColor:self.dk_minimumTrackTintColorPicker(NO)];
     }
     else
     {
@@ -60,14 +60,14 @@
 
 
 - (void)sm_hook_setMaximumTrackTintColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setMaximumTrackTintColor:color];
         return;
     }
-    if (self.dk_maximumTrackTintColorPicker && [self.dk_maximumTrackTintColorPicker() isEqual:color])
+    if (self.dk_maximumTrackTintColorPicker && [self.dk_maximumTrackTintColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setMaximumTrackTintColor:self.dk_maximumTrackTintColorPicker()];
+        [self sm_hook_setMaximumTrackTintColor:self.dk_maximumTrackTintColorPicker(NO)];
     }
     else
     {
@@ -80,14 +80,14 @@
 
 
 - (void)sm_hook_setThumbTintColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setThumbTintColor:color];
         return;
     }
-    if (self.dk_thumbTintColorPicker && [self.dk_thumbTintColorPicker() isEqual:color])
+    if (self.dk_thumbTintColorPicker && [self.dk_thumbTintColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setThumbTintColor:self.dk_thumbTintColorPicker()];
+        [self sm_hook_setThumbTintColor:self.dk_thumbTintColorPicker(NO)];
     }
     else
     {
@@ -105,7 +105,7 @@
 - (void)setDk_minimumTrackTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_minimumTrackTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setMinimumTrackTintColor:picker()];
+    [self sm_hook_setMinimumTrackTintColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setMinimumTrackTintColor:"];
 }
     
@@ -117,7 +117,7 @@
 - (void)setDk_maximumTrackTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_maximumTrackTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setMaximumTrackTintColor:picker()];
+    [self sm_hook_setMaximumTrackTintColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setMaximumTrackTintColor:"];
 }
     
@@ -129,7 +129,7 @@
 - (void)setDk_thumbTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_thumbTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setThumbTintColor:picker()];
+    [self sm_hook_setThumbTintColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setThumbTintColor:"];
 }
     

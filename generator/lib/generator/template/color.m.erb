@@ -37,14 +37,14 @@
 <% if !property.name.include?"tint" %>
 <%= """
 - (void)sm_hook_#{property.setter}(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_#{property.setter}color];
         return;
     }
-    if (self.dk_#{property.name}Picker && [self.dk_#{property.name}Picker() isEqual:color])
+    if (self.dk_#{property.name}Picker && [self.dk_#{property.name}Picker(YES) isEqual:color])
     {
-        [self sm_hook_#{property.setter}self.dk_#{property.name}Picker()];
+        [self sm_hook_#{property.setter}self.dk_#{property.name}Picker(NO)];
     }
     else
     {
@@ -62,11 +62,11 @@
 - (void)setDk_#{property.name}Picker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_#{property.name}Picker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 """ %><% if !property.name.include?"tint" %>
-    <%= """[self sm_hook_#{property.setter}picker()];
+    <%= """[self sm_hook_#{property.setter}picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@\"sm_hook_#{property.setter}\"];
 }"""%>
     <% else %>
-    <%= """self.#{property.name} =  picker();
+    <%= """self.#{property.name} =  picker(NO);
     [self.pickers setValue:[picker copy] forKey:@\"#{property.setter}\"];
 }"""%>
     <% end %>

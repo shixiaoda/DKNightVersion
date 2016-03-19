@@ -44,7 +44,7 @@
 - (void)setDk_tintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_tintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    self.tintColor =  picker();
+    self.tintColor =  picker(NO);
     [self.pickers setValue:[picker copy] forKey:@"setTintColor:"];
 }
     

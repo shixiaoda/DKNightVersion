@@ -16,7 +16,7 @@ typedef NS_ENUM(NSUInteger, DKThemeVersion) {
     DKThemeVersionTest
 };
 
-typedef id(^DKPicker)(void);
+typedef id(^DKPicker)(BOOL bOriginal);
 
 extern NSString *const DKNightVersionNightFallingNotification;
 extern NSString *const DKNightVersionDawnComingNotification;
@@ -53,7 +53,5 @@ extern CGFloat const DKNightVersionAnimationDuration;
  *  Dawn coming. When dawnComing is called, post DKNightVersionDawnComingNotification. You  can setup customize with observing the notification.
  */
 + (void)dawnComing;
-
-+ (void)testComing;
 
 @end

@@ -38,14 +38,14 @@
 
 
 - (void)sm_hook_setBarTintColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setBarTintColor:color];
         return;
     }
-    if (self.dk_barTintColorPicker && [self.dk_barTintColorPicker() isEqual:color])
+    if (self.dk_barTintColorPicker && [self.dk_barTintColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setBarTintColor:self.dk_barTintColorPicker()];
+        [self sm_hook_setBarTintColor:self.dk_barTintColorPicker(NO)];
     }
     else
     {
@@ -65,7 +65,7 @@
 - (void)setDk_barTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_barTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setBarTintColor:picker()];
+    [self sm_hook_setBarTintColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setBarTintColor:"];
 }
     
@@ -77,7 +77,7 @@
 - (void)setDk_tintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_tintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    self.tintColor =  picker();
+    self.tintColor =  picker(NO);
     [self.pickers setValue:[picker copy] forKey:@"setTintColor:"];
 }
     

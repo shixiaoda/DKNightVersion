@@ -40,14 +40,14 @@
 
 
 - (void)sm_hook_setTextColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setTextColor:color];
         return;
     }
-    if (self.dk_textColorPicker && [self.dk_textColorPicker() isEqual:color])
+    if (self.dk_textColorPicker && [self.dk_textColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setTextColor:self.dk_textColorPicker()];
+        [self sm_hook_setTextColor:self.dk_textColorPicker(NO)];
     }
     else
     {
@@ -60,14 +60,14 @@
 
 
 - (void)sm_hook_setShadowColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setShadowColor:color];
         return;
     }
-    if (self.dk_shadowColorPicker && [self.dk_shadowColorPicker() isEqual:color])
+    if (self.dk_shadowColorPicker && [self.dk_shadowColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setShadowColor:self.dk_shadowColorPicker()];
+        [self sm_hook_setShadowColor:self.dk_shadowColorPicker(NO)];
     }
     else
     {
@@ -80,14 +80,14 @@
 
 
 - (void)sm_hook_setHighlightedTextColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setHighlightedTextColor:color];
         return;
     }
-    if (self.dk_highlightedTextColorPicker && [self.dk_highlightedTextColorPicker() isEqual:color])
+    if (self.dk_highlightedTextColorPicker && [self.dk_highlightedTextColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setHighlightedTextColor:self.dk_highlightedTextColorPicker()];
+        [self sm_hook_setHighlightedTextColor:self.dk_highlightedTextColorPicker(NO)];
     }
     else
     {
@@ -105,7 +105,7 @@
 - (void)setDk_textColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_textColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setTextColor:picker()];
+    [self sm_hook_setTextColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setTextColor:"];
 }
     
@@ -117,7 +117,7 @@
 - (void)setDk_shadowColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_shadowColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setShadowColor:picker()];
+    [self sm_hook_setShadowColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setShadowColor:"];
 }
     
@@ -129,7 +129,7 @@
 - (void)setDk_highlightedTextColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_highlightedTextColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setHighlightedTextColor:picker()];
+    [self sm_hook_setHighlightedTextColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setHighlightedTextColor:"];
 }
     

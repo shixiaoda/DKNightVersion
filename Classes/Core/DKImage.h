@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef UIImage *(^DKImagePicker)(void);
+typedef UIImage *(^DKImagePicker)(BOOL bOriginal);
 
 DKImagePicker DKImageWithNames(NSString *normal, NSString *night);
 DKImagePicker DKImageWithImages(UIImage *normal, UIImage *night);
@@ -18,5 +18,4 @@ DKImagePicker DKImageWithImages(UIImage *normal, UIImage *night);
 + (DKImagePicker)imageNamed:(NSString *)name;
 + (DKImagePicker)pickerWithNormalImage:(UIImage *)normalImage nightImage:(UIImage *)nightImage;
 
-//+ (DKImagePicker)defaultImagePicker:(UIImage *)image;
 @end

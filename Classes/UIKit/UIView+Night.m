@@ -38,14 +38,14 @@
 
 
 - (void)sm_hook_setBackgroundColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setBackgroundColor:color];
         return;
     }
-    if (self.dk_backgroundColorPicker && [self.dk_backgroundColorPicker() isEqual:color])
+    if (self.dk_backgroundColorPicker && [self.dk_backgroundColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setBackgroundColor:self.dk_backgroundColorPicker()];
+        [self sm_hook_setBackgroundColor:self.dk_backgroundColorPicker(NO)];
     }
     else
     {
@@ -65,7 +65,7 @@
 - (void)setDk_backgroundColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_backgroundColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setBackgroundColor:picker()];
+    [self sm_hook_setBackgroundColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setBackgroundColor:"];
 }
     
@@ -77,7 +77,7 @@
 - (void)setDk_tintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_tintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    self.tintColor =  picker();
+    self.tintColor =  picker(NO);
     [self.pickers setValue:[picker copy] forKey:@"setTintColor:"];
 }
     

@@ -39,14 +39,14 @@
 
 
 - (void)sm_hook_setPageIndicatorTintColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setPageIndicatorTintColor:color];
         return;
     }
-    if (self.dk_pageIndicatorTintColorPicker && [self.dk_pageIndicatorTintColorPicker() isEqual:color])
+    if (self.dk_pageIndicatorTintColorPicker && [self.dk_pageIndicatorTintColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setPageIndicatorTintColor:self.dk_pageIndicatorTintColorPicker()];
+        [self sm_hook_setPageIndicatorTintColor:self.dk_pageIndicatorTintColorPicker(NO)];
     }
     else
     {
@@ -59,14 +59,14 @@
 
 
 - (void)sm_hook_setCurrentPageIndicatorTintColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setCurrentPageIndicatorTintColor:color];
         return;
     }
-    if (self.dk_currentPageIndicatorTintColorPicker && [self.dk_currentPageIndicatorTintColorPicker() isEqual:color])
+    if (self.dk_currentPageIndicatorTintColorPicker && [self.dk_currentPageIndicatorTintColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setCurrentPageIndicatorTintColor:self.dk_currentPageIndicatorTintColorPicker()];
+        [self sm_hook_setCurrentPageIndicatorTintColor:self.dk_currentPageIndicatorTintColorPicker(NO)];
     }
     else
     {
@@ -84,7 +84,7 @@
 - (void)setDk_pageIndicatorTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_pageIndicatorTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setPageIndicatorTintColor:picker()];
+    [self sm_hook_setPageIndicatorTintColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setPageIndicatorTintColor:"];
 }
     
@@ -96,7 +96,7 @@
 - (void)setDk_currentPageIndicatorTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_currentPageIndicatorTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setCurrentPageIndicatorTintColor:picker()];
+    [self sm_hook_setCurrentPageIndicatorTintColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setCurrentPageIndicatorTintColor:"];
 }
     

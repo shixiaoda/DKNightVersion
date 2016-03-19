@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "DKNightVersionManager.h"
 
+#define UIRemoteKeyboardWindow @"UIRemoteKeyboardWindow"
+
 @interface NSObject (Night)
 
 @end

@@ -38,14 +38,14 @@
 
 
 - (void)sm_hook_setTextColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setTextColor:color];
         return;
     }
-    if (self.dk_textColorPicker && [self.dk_textColorPicker() isEqual:color])
+    if (self.dk_textColorPicker && [self.dk_textColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setTextColor:self.dk_textColorPicker()];
+        [self sm_hook_setTextColor:self.dk_textColorPicker(NO)];
     }
     else
     {
@@ -63,7 +63,7 @@
 - (void)setDk_textColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_textColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setTextColor:picker()];
+    [self sm_hook_setTextColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setTextColor:"];
 }
     

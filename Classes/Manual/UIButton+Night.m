@@ -33,7 +33,7 @@
 
 - (void)sm_hook_setTitleColor:(UIColor *)color forState:(UIControlState)state
 {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setTitleColor:color forState:state];
         return;
@@ -55,7 +55,7 @@
 }
 
 - (void)dk_setTitleColorPicker:(DKColorPicker)picker forState:(UIControlState)state {
-    [self sm_hook_setTitleColor:picker() forState:state];
+    [self sm_hook_setTitleColor:picker(NO) forState:state];
     NSString *key = [NSString stringWithFormat:@"%@", @(state)];
     NSMutableDictionary *dictionary = [self.pickers valueForKey:key];
     if (!dictionary) {
@@ -66,7 +66,7 @@
 }
 
 - (void)dk_setBackgroundImage:(DKImagePicker)picker forState:(UIControlState)state {
-    [self setBackgroundImage:picker() forState:state];
+    [self setBackgroundImage:picker(NO) forState:state];
     NSString *key = [NSString stringWithFormat:@"%@", @(state)];
     NSMutableDictionary *dictionary = [self.pickers valueForKey:key];
     if (!dictionary) {
@@ -77,7 +77,7 @@
 }
 
 - (void)dk_setImage:(DKImagePicker)picker forState:(UIControlState)state {
-    [self setImage:picker() forState:state];
+    [self setImage:picker(NO) forState:state];
     NSString *key = [NSString stringWithFormat:@"%@", @(state)];
     NSMutableDictionary *dictionary = [self.pickers valueForKey:key];
     if (!dictionary) {
@@ -96,23 +96,23 @@
                 [UIView animateWithDuration:DKNightVersionAnimationDuration
                                  animations:^{
                                      if ([selector isEqualToString:NSStringFromSelector(@selector(setTitleColor:forState:))]) {
-                                         UIColor *resultColor = picker();
+                                         UIColor *resultColor = picker(NO);
                                          [self setTitleColor:resultColor forState:state];
                                      } else if ([selector isEqualToString:NSStringFromSelector(@selector(setBackgroundImage:forState:))]) {
-                                         UIImage *resultImage = ((DKImagePicker)picker)();
+                                         UIImage *resultImage = ((DKImagePicker)picker)(NO);
                                          [self setBackgroundImage:resultImage forState:state];
                                      } else if ([selector isEqualToString:NSStringFromSelector(@selector(setImage:forState:))]) {
-                                         UIImage *resultImage = ((DKImagePicker)picker)();
+                                         UIImage *resultImage = ((DKImagePicker)picker)(NO);
                                          [self setImage:resultImage forState:state];
                                      } else if ([selector isEqualToString:NSStringFromSelector(@selector(sm_hook_setTitleColor:forState:))]) {
-                                         UIColor *resultColor = picker();
+                                         UIColor *resultColor = picker(NO);
                                          [self sm_hook_setTitleColor:resultColor forState:state];                                     }
                                  }];
             }];
         } else {
             SEL sel = NSSelectorFromString(key);
             DKColorPicker picker = (DKColorPicker)obj;
-            UIColor *resultColor = picker();
+            UIColor *resultColor = picker(NO);
             [UIView animateWithDuration:DKNightVersionAnimationDuration
                              animations:^{
 #pragma clang diagnostic push

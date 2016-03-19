@@ -39,14 +39,14 @@
 
 
 - (void)sm_hook_setOnTintColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setOnTintColor:color];
         return;
     }
-    if (self.dk_onTintColorPicker && [self.dk_onTintColorPicker() isEqual:color])
+    if (self.dk_onTintColorPicker && [self.dk_onTintColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setOnTintColor:self.dk_onTintColorPicker()];
+        [self sm_hook_setOnTintColor:self.dk_onTintColorPicker(NO)];
     }
     else
     {
@@ -59,14 +59,14 @@
 
 
 - (void)sm_hook_setThumbTintColor:(UIColor *)color {
-    if (!color)
+    if (!color || [NSStringFromClass(self.window.class) isEqualToString:UIRemoteKeyboardWindow])
     {
         [self sm_hook_setThumbTintColor:color];
         return;
     }
-    if (self.dk_thumbTintColorPicker && [self.dk_thumbTintColorPicker() isEqual:color])
+    if (self.dk_thumbTintColorPicker && [self.dk_thumbTintColorPicker(YES) isEqual:color])
     {
-        [self sm_hook_setThumbTintColor:self.dk_thumbTintColorPicker()];
+        [self sm_hook_setThumbTintColor:self.dk_thumbTintColorPicker(NO)];
     }
     else
     {
@@ -84,7 +84,7 @@
 - (void)setDk_onTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_onTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setOnTintColor:picker()];
+    [self sm_hook_setOnTintColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setOnTintColor:"];
 }
     
@@ -96,7 +96,7 @@
 - (void)setDk_thumbTintColorPicker:(DKColorPicker)picker {
     objc_setAssociatedObject(self, @selector(dk_thumbTintColorPicker), picker, OBJC_ASSOCIATION_COPY_NONATOMIC);
 
-    [self sm_hook_setThumbTintColor:picker()];
+    [self sm_hook_setThumbTintColor:picker(NO)];
     [self.pickers setValue:[picker copy] forKey:@"sm_hook_setThumbTintColor:"];
 }
     
